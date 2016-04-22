@@ -3,6 +3,7 @@ package edu.uw.jjhama.cimateimpact;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,14 @@ public class ProfileFragment extends Fragment {
 
         //set the values to users account details
         //Todo: get and set Profile details (From a bundle...?)
+        Bundle getBundle = getArguments();
+        final String name = getBundle.getString("name");
+        int waterAmount = getBundle.getInt("water");
+        int carbonAmount = getBundle.getInt("carbon");
+
+        carbon.setText(carbonAmount + "");
+        water.setText(waterAmount + "");
+        fName.setText(name);
 //        fName.setText(accountDetails.getfName());
 //        lName.setText(accountDetails.getlName());
 //        carbon.setText(accountDetails.getCarbon()+ "");
@@ -50,6 +59,20 @@ public class ProfileFragment extends Fragment {
                         .replace(R.id.container, new ProfileFragment())
                         .addToBackStack(null)
                         .commit();
+            }
+        });
+
+        Button change = (Button) rootView.findViewById(R.id.alterInfo);
+        change.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Log.v(TAG, "alter user info");
+//                getActivity().getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.container, new ProfileFragment())
+//                        .addToBackStack(null)
+//                        .commit();
             }
         });
 

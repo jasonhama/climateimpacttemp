@@ -116,6 +116,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:background="@color/red"
+        android:layout_height="wrap_content"
+        android:text="Alter Info"
+        android:id="@+id/alterInfo"
+        android:layout_above="@+id/textView9"
+        android:layout_toRightOf="@+id/activity"
+        android:layout_toEndOf="@+id/activity" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

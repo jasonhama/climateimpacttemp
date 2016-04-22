@@ -61,11 +61,18 @@ public class Signup extends Fragment {
                     if(password.length() > 0) {
                         if (password.equals(confirmPassword)) {
                             //send the user to the signin page
-
+                            Bundle bundle = new Bundle();
+                            bundle.putString("name", name);
+                            bundle.putString("email", email);
+                            bundle.putInt("carbon", 0);
+                            bundle.putInt("water", 0);
                             //Todo:change fragment to ProfileFragment
+                            ProfileFragment profileFragment = new ProfileFragment();
+                            profileFragment.setArguments(bundle);
+
                             getActivity().getSupportFragmentManager()
                                     .beginTransaction()
-                                    .replace(R.id.container, new ProfileFragment())
+                                    .replace(R.id.container, profileFragment)
                                     .addToBackStack(null)
                                     .commit();
                         } else {

@@ -39,6 +39,7 @@ public class Startup extends Fragment {
                 //Signin signin = new Signin();
                 //signin.show(getActivity().getSupportFragmentManager());
 
+
                 getActivity().getSupportFragmentManager()
                         .beginTransaction().replace(R.id.container, new Signup())
                         .addToBackStack(null)
