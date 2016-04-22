@@ -1,4 +1,4 @@
-package edu.uw.jjhama.climateimpact;
+package edu.uw.jjhama.cimateimpact;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -12,6 +12,9 @@ public class AccountDetails implements Parcelable{
     private String lName;
     private String email;
     private String password;
+    private String country;
+    private String zip;
+    private String state;
     private int water;
     private int carbon;
 
@@ -24,6 +27,9 @@ public class AccountDetails implements Parcelable{
         this.password = "";
         this.water = 0;
         this.carbon = 0;
+        this.zip = "00000";
+        this.country = "USA";
+        this.state = "WA";
     }
 
     public AccountDetails(String fName, String lName, String email, String password){
@@ -40,6 +46,18 @@ public class AccountDetails implements Parcelable{
     }
 
     //getters and setters
+    public String getCountry(){ return state; }
+
+    public void setCountry(String country){ this.country = country; }
+
+    public String getZip(){ return zip; }
+
+    public void setZip(String zip){this.zip = zip; }
+
+    public String getState() { return state; }
+
+    public void setState(String state){ this.state = state; }
+
     public String getfName(){
         return fName;
     }

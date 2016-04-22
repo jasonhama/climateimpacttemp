@@ -32,6 +32,9 @@ public class ProfileFragment extends Fragment {
         TextView lName = (TextView) rootView.findViewById(R.id.lName);
         TextView carbon = (TextView) rootView.findViewById(R.id.carbon);
         TextView water = (TextView) rootView.findViewById(R.id.water);
+        TextView state = (TextView) rootView.findViewById(R.id.state);
+        TextView country = (TextView) rootView.findViewById(R.id.country);
+        TextView zip = (TextView) rootView.findViewById(R.id.zip);
 
         //set the values to users account details
         //Todo: get and set Profile details (From a bundle...?)
@@ -68,11 +71,8 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.v(TAG, "alter user info");
-//                getActivity().getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.container, new ProfileFragment())
-//                        .addToBackStack(null)
-//                        .commit();
+                ChangeUserDataFragment changeUserDataFragment = new ChangeUserDataFragment();
+                changeUserDataFragment.show(getActivity().getFragmentManager(), "hello");
             }
         });
 

@@ -5,8 +5,10 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 
 /**
@@ -29,14 +31,19 @@ public class ChangeUserDataFragment extends DialogFragment {
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.alter_user_info_dialog, null))
                 // Add action buttons
-                .setPositiveButton("signin", new DialogInterface.OnClickListener() {
+                .setPositiveButton("submit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         // sign in the user ...
+                        Dialog f = (Dialog) dialog;
+                        EditText firstName = (EditText) f.findViewById(R.id.);
+
+                        Log.v(TAG, "Submit was selected \n username: "+ );
                     }
                 })
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        Log.v(TAG, "Cancel was selected");
                         ChangeUserDataFragment.this.getDialog().cancel();
                     }
                 });
