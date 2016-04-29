@@ -97,4 +97,65 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    /*
+    public void selectDrawerItem(MenuItem menuItem) {
+        if(menuItem == null) {
+            if(mLastMenuItem != null) {
+                mLastMenuItem.setChecked(false);
+            }
+            return;
+        }
+        mLastMenuItem = menuItem;
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+
+        //menu items
+        //each case hides the non active fragments and shows the selected fragment
+        switch(menuItem.getItemId()) {
+            case R.id.nav_map_fragment:
+                ft.show(mMapFragment)
+                        .hide(mChatFragment)
+                        .hide(mLeaderboardFragment)
+                        .hide(mProfileFragment);
+                killButton.setVisibility(View.VISIBLE);
+                break;
+            case R.id.nav_chat_fragment:
+                ft.show(mChatFragment)
+                        .hide(mMapFragment)
+                        .hide(mLeaderboardFragment)
+                        .hide(mProfileFragment);
+                killButton.setVisibility(View.GONE);
+                break;
+            case R.id.nav_profile_fragment:
+                ft.show(mProfileFragment)
+                        .hide(mChatFragment)
+                        .hide(mMapFragment)
+                        .hide(mLeaderboardFragment);
+                killButton.setVisibility(View.GONE);
+                break;
+            case R.id.nav_leaderboard_fragment:
+                ft.show(mLeaderboardFragment)
+                        .hide(mChatFragment)
+                        .hide(mMapFragment)
+                        .hide(mProfileFragment);
+                killButton.setVisibility(View.GONE);
+                break;
+            default:
+                ft.show(mMapFragment)
+                        .hide(mChatFragment)
+                        .hide(mLeaderboardFragment)
+                        .hide(mProfileFragment);
+                killButton.setVisibility(View.GONE);
+                break;
+        }
+        ft.commit();
+
+        // Highlight the selected item, update the title, and close the drawer
+        // Highlight the selected item has been done by NavigationView
+        menuItem.setChecked(true);
+        setTitle(menuItem.getTitle());
+        mDrawer.closeDrawers();
+    }*/
+
 }
