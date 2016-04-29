@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/white"
-                android:id="@+id/zip"
+                android:id="@+id/txtZip"
                 android:text="Zip Code"
                 />
         </LinearLayout>
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/white"
-                android:id="@+id/state"
+                android:id="@+id/txtState"
                 android:text="State"
                 android:textColorHint="@color/white"/>
         </LinearLayout>
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/white"
-                android:id="@+id/country"
+                android:id="@+id/txtCountry"
                 android:text="Country"
                 android:textColorHint="@color/white"/>
         </LinearLayout>
