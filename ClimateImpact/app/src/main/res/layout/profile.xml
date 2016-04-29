@@ -1,207 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark">
+    android:background="@color/dark"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!--My Personal Details-->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My Personal Detail"
-        android:id="@+id/textView2"
-        android:textColor="@color/white"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Personal Detail"
+            android:id="@+id/textView2"
+            android:textColor="@color/white"
+            android:textSize="24dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+        <!--First Name-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="First Name"
+                android:textColor="@color/white"
+                android:id="@+id/textView3" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/white"
+                android:id="@+id/fName"
+                android:hint="Enter First Name"
+                android:textColorHint="@color/white"
+                />
+        </LinearLayout>
+
+        <!--Last Name-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Last Name"
+                android:textColor="@color/white" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/lName"
+                android:textColor="@color/white"
+                android:hint="Enter Your Last Name"
+                android:textColorHint="@color/white"
+                />
+        </LinearLayout>
+
+        <!--Zip Code-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Zip"
+                android:id="@+id/textView5"
+                android:textColor="@color/white"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/white"
+                android:id="@+id/zip"
+                android:hint="Enter Zip Code"
+                android:textColorHint="@color/white"
+                />
+        </LinearLayout>
+
+        <!--Country-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Country"
+                android:textColor="@color/white"
+                android:id="@+id/textView13" />
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/white"
+                android:id="@+id/country"
+                android:hint="Enter Country"
+                android:textColorHint="@color/white"/>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="200dp"
+            android:background="@color/red"
+            android:layout_height="36dp"
+            android:text="Update Profile"
+            android:id="@+id/alterInfo"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+
+    <!--My Progress-->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="First Name"
-        android:textColor="@color/white"
-        android:id="@+id/textView3"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="26dp" />
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Progress"
+            android:id="@+id/textView9"
+            android:textColor="@color/white"
+            android:textSize="24dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Last Name"
-        android:textColor="@color/white"
-        android:id="@+id/textView4"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3" />
+        <!--Overall Carbon-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Overall Carbon Savings:"
+                android:id="@+id/textView6"
+                android:textColor="@color/white"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Carbon"
+                android:textColor="@color/white"
+                android:id="@+id/carbon" />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Zip"
-        android:id="@+id/textView5"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/textView4"
-        android:layout_alignLeft="@+id/textView4"
-        android:textColor="@color/white"
-        android:layout_alignStart="@+id/textView4" />
+        <!--Overall Water-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Overall Water Savings:"
+                android:id="@+id/textView7"
+                android:textColor="@color/white"
+                android:layout_weight="1"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Progress"
-        android:id="@+id/textView9"
-        android:textColor="@color/white"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Water"
+                android:textColor="@color/white"
+                android:id="@+id/water"/>
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Overall Carbon Savings:"
-        android:id="@+id/textView6"
-        android:textColor="@color/white"
-        android:layout_below="@+id/textView9"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5"
-        android:layout_marginTop="35dp" />
+        <Button
+            android:layout_width="200dp"
+            android:background="@color/red"
+            android:layout_height="36dp"
+            android:text="To Activity"
+            android:id="@+id/activity"
+            android:layout_marginBottom="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Overall Water Savings:"
-        android:id="@+id/textView7"
-        android:textColor="@color/white"
-        android:layout_below="@+id/textView6"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Carbon"
-        android:textColor="@color/white"
-        android:id="@+id/carbon"
-        android:layout_alignBottom="@+id/textView6"
-        android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Water"
-        android:textColor="@color/white"
-        android:id="@+id/water"
-        android:layout_below="@+id/textView6"
-        android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:background="@color/red"
-        android:layout_height="wrap_content"
-        android:text="To Activity"
-        android:id="@+id/activity"
-        android:layout_marginBottom="55dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:background="@color/red"
-        android:layout_height="wrap_content"
-        android:text="Alter Info"
-        android:id="@+id/alterInfo"
-        android:layout_above="@+id/textView9"
-        android:layout_toRightOf="@+id/activity"
-        android:layout_toEndOf="@+id/activity" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="fName"
-        android:textColor="@color/white"
-        android:id="@+id/fName"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_alignRight="@+id/carbon"
-        android:layout_alignEnd="@+id/carbon" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="lName"
-        android:id="@+id/lName"
-        android:textColor="@color/white"
-
-        android:layout_above="@+id/textView5"
-        android:layout_alignLeft="@+id/fName"
-        android:layout_alignStart="@+id/fName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Zip"
-        android:textColor="@color/white"
-        android:id="@+id/zip"
-        android:layout_above="@+id/textView9"
-        android:layout_alignLeft="@+id/lName"
-        android:layout_alignStart="@+id/lName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="State"
-        android:id="@+id/textView12"
-        android:textColor="@color/white"
-        android:layout_below="@+id/textView5"
-        android:layout_alignLeft="@+id/textView5"
-        android:layout_alignStart="@+id/textView5" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Country"
-        android:textColor="@color/white"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/textView12"
-        android:layout_alignLeft="@+id/textView12"
-        android:layout_alignStart="@+id/textView12" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="State"
-        android:id="@+id/state"
-        android:textColor="@color/white"
-        android:layout_below="@+id/alterInfo"
-        android:layout_alignLeft="@+id/zip"
-        android:layout_alignStart="@+id/zip" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Country"
-        android:textColor="@color/white"
-        android:id="@+id/country"
-        android:layout_below="@+id/state"
-        android:layout_alignLeft="@+id/state"
-        android:layout_alignStart="@+id/state" />
-
-</RelativeLayout>
+</LinearLayout>

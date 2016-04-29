@@ -36,9 +36,9 @@ public class ChangeUserDataFragment extends DialogFragment {
                     public void onClick(DialogInterface dialog, int id) {
                         // sign in the user ...
                         Dialog f = (Dialog) dialog;
-                        EditText firstName = (EditText) f.findViewById(R.id.);
+                        EditText firstName = (EditText) f.findViewById(R.id.firstName);
 
-                        Log.v(TAG, "Submit was selected \n username: "+ );
+                        //Log.v(TAG, "Submit was selected \n username: "+ );
                     }
                 })
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
