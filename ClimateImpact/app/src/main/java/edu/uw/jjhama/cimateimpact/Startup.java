@@ -40,8 +40,12 @@ public class Startup extends Fragment {
                 //signin.show(getActivity().getSupportFragmentManager());
 
 
+                ProfileFragment profileFragment = new ProfileFragment();
+                //profileFragment.setArguments(bundle);
+
                 getActivity().getSupportFragmentManager()
-                        .beginTransaction().replace(R.id.container, new Signup())
+                        .beginTransaction()
+                        .replace(R.id.container, profileFragment)
                         .addToBackStack(null)
                         .commit();
                 /*

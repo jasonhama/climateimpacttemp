@@ -2,11 +2,14 @@ package edu.uw.jjhama.cimateimpact;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -76,17 +79,32 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Log.v(TAG, "camera");
+            //put the startup fragment in view
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new ProfileFragment())
+                    .addToBackStack(null)
+                    .commit();
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new Signup())
+                    .addToBackStack(null)
+                    .commit();
         } else if (id == R.id.nav_slideshow) {
-
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new Signin())
+                    .addToBackStack(null)
+                    .commit();
         } else if (id == R.id.nav_manage) {
-
+            Log.v(TAG, "hihihihihihi");
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

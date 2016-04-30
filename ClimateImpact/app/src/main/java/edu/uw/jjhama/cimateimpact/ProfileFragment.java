@@ -39,10 +39,14 @@ public class ProfileFragment extends Fragment {
         //set the values to users account details
         //Todo: get and set Profile details (From a bundle...?)
         Bundle getBundle = getArguments();
-        final String name = getBundle.getString("name");
-        int waterAmount = getBundle.getInt("water");
-        int carbonAmount = getBundle.getInt("carbon");
-
+        String name = "";
+        int waterAmount = 0;
+        int carbonAmount = 0;
+        if(getBundle != null) {
+            name = getBundle.getString("name");
+            waterAmount = getBundle.getInt("water");
+            carbonAmount = getBundle.getInt("carbon");
+        }
         carbon.setText(carbonAmount + "");
         water.setText(waterAmount + "");
         fName.setText(name);
@@ -59,7 +63,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.container, new ProfileFragment())
+                        .replace(R.id.container, new Activity())
                         .addToBackStack(null)
                         .commit();
             }

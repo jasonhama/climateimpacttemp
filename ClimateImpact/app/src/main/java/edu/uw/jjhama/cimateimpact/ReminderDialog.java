@@ -12,15 +12,16 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 /**
- * Created by iguest on 4/22/16.
+ * Created by iguest on 4/29/16.
  */
-public class ChangeUserDataFragment extends DialogFragment {
+public class ReminderDialog extends DialogFragment{
 
-    private static final String TAG = "ChangeUserDataFragment";
+    private static final String TAG = "ReminderDialog";
 
-    public ChangeUserDataFragment(){
-
+    public ReminderDialog(){
+        //required empty
     }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -35,11 +36,11 @@ public class ChangeUserDataFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         // sign in the user ...
-                        Dialog f = (Dialog) dialog;
+                        //Dialog f = (Dialog) dialog;
 
                         //EditText firstName = (EditText) f.findViewById(R.id.);
 
-                        EditText firstName = (EditText) f.findViewById(R.id.firstName);
+                        //EditText firstName = (EditText) f.findViewById(R.id.firstName);
 
 
                         //Log.v(TAG, "Submit was selected \n username: "+ );
@@ -48,7 +49,7 @@ public class ChangeUserDataFragment extends DialogFragment {
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Log.v(TAG, "Cancel was selected");
-                        ChangeUserDataFragment.this.getDialog().cancel();
+                        ReminderDialog.this.getDialog().cancel();
                     }
                 });
         return builder.create();

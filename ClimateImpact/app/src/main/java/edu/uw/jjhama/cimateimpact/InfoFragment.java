@@ -8,19 +8,19 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ListView;
 
 /**
- * Created by iguest on 4/22/16.
+ * Created by iguest on 4/29/16.
  */
-public class ChangeUserDataFragment extends DialogFragment {
+public class InfoFragment extends DialogFragment {
 
-    private static final String TAG = "ChangeUserDataFragment";
+    private static final String TAG = "InfoFragment";
 
-    public ChangeUserDataFragment(){
-
+    public InfoFragment(){
+        //required empty
     }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -29,28 +29,26 @@ public class ChangeUserDataFragment extends DialogFragment {
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
-        builder.setView(inflater.inflate(R.layout.alter_user_info_dialog, null))
+        builder.setView(inflater.inflate(R.layout.info_activity_dialog, null))
                 // Add action buttons
-                .setPositiveButton("submit", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Go Back", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         // sign in the user ...
                         Dialog f = (Dialog) dialog;
-
                         //EditText firstName = (EditText) f.findViewById(R.id.);
-
-                        EditText firstName = (EditText) f.findViewById(R.id.firstName);
-
 
                         //Log.v(TAG, "Submit was selected \n username: "+ );
                     }
-                })
+                });
+                /*
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Log.v(TAG, "Cancel was selected");
-                        ChangeUserDataFragment.this.getDialog().cancel();
+                        InfoFragment.this.getDialog().cancel();
                     }
                 });
+                */
         return builder.create();
     }
 
@@ -65,4 +63,5 @@ public class ChangeUserDataFragment extends DialogFragment {
             return listView.getChildAt(childIndex);
         }
     }
+
 }

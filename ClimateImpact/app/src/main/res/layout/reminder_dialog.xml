@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Time Setting"
+        android:id="@+id/textView15"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Schedule a Reminder"
+        android:id="@+id/textView14"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:layout_gravity="center_horizontal|top" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="End Time"
+        android:id="@+id/textView17"
+        android:layout_below="@+id/hoursStart"
+        android:layout_alignLeft="@+id/textView16"
+        android:layout_alignStart="@+id/textView16"
+        android:layout_gravity="left|bottom" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Start Time"
+        android:id="@+id/textView16"
+        android:layout_alignTop="@+id/hoursStart"
+        android:layout_toLeftOf="@+id/hoursStart"
+        android:layout_toStartOf="@+id/hoursStart"
+        android:layout_gravity="left|center_vertical" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/minutesEnd"
+        android:layout_gravity="right|bottom" />
+
+    <EditText
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="10"
+        android:id="@+id/hoursEnd"
+        android:layout_below="@+id/hoursStart"
+        android:layout_alignRight="@+id/textView14"
+        android:layout_alignEnd="@+id/textView14"
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/minutesStart"
+        android:layout_gravity="right|center_vertical" />
+
+    <EditText
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="10"
+        android:id="@+id/hoursStart"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_alignLeft="@+id/hoursEnd"
+        android:layout_alignStart="@+id/hoursEnd"
+        android:layout_gravity="center" />
+
+</FrameLayout>
