@@ -48,6 +48,9 @@ public class Activity extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.v(TAG, "Reminder was selected");
+
+                ReminderDialog reminderDialog = new ReminderDialog();
+                reminderDialog.show(getActivity().getFragmentManager(), "hello");
             }
         });
 

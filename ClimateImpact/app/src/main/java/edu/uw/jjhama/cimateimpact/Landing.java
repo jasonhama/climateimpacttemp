@@ -107,6 +107,10 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
                     .commit();
         } else if (id == R.id.activities) {
             Log.v(TAG, "hihihihihihi");
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new Activity())
+                    .addToBackStack(null)
+                    .commit();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
