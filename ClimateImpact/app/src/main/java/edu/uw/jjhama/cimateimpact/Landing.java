@@ -61,6 +61,7 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
         return true;
     }
 
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -75,6 +76,7 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
 
         return super.onOptionsItemSelected(item);
     }
+    */
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -85,7 +87,7 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.profile) {
             Log.v(TAG, "camera");
             //put the startup fragment in view
             getSupportFragmentManager().beginTransaction()
@@ -93,17 +95,17 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
                     .addToBackStack(null)
                     .commit();
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.signup) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, new Signup())
                     .addToBackStack(null)
                     .commit();
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.signin) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, new Signin())
                     .addToBackStack(null)
                     .commit();
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.activities) {
             Log.v(TAG, "hihihihihihi");
         } else if (id == R.id.nav_share) {
 

@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:text="Schedule reminder"
         android:background="@color/red"
-        android:id="@+id/button"
+        android:id="@+id/reminder"
         android:layout_marginTop="107dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -24,7 +24,7 @@
         android:text="i"
         android:background="@color/red"
         android:id="@+id/info"
-        android:layout_alignTop="@+id/button"
+        android:layout_alignTop="@+id/reminder"
         android:layout_alignLeft="@+id/button4"
         android:layout_alignStart="@+id/button4" />
 
@@ -35,8 +35,8 @@
         android:background="@color/red"
         android:id="@+id/button3"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignLeft="@+id/reminder"
+        android:layout_alignStart="@+id/reminder" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -81,8 +81,8 @@
         android:id="@+id/textView8"
         android:layout_above="@+id/info"
         android:textColor="@color/white"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignLeft="@+id/reminder"
+        android:layout_alignStart="@+id/reminder" />
 
     <TextView
         android:layout_width="wrap_content"

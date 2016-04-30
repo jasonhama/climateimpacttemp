@@ -53,6 +53,7 @@ public class BaseClass extends AppCompatActivity
         return true;
     }
 
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -67,6 +68,7 @@ public class BaseClass extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+    */
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -74,13 +76,13 @@ public class BaseClass extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.profile) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.signup) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.signin) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.activities) {
 
         } else if (id == R.id.nav_share) {
 

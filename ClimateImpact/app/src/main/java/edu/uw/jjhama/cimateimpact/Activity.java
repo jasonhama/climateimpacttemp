@@ -24,8 +24,8 @@ public class Activity extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.activity, container, false);
-        Button button = (Button) rootView.findViewById(R.id.info);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button info = (Button) rootView.findViewById(R.id.info);
+        info.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -39,6 +39,15 @@ public class Activity extends Fragment {
                         .addToBackStack(null)
                         .commit();
                         */
+            }
+        });
+
+        Button reminder = (Button) rootView.findViewById(R.id.reminder);
+        reminder.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Log.v(TAG, "Reminder was selected");
             }
         });
 
