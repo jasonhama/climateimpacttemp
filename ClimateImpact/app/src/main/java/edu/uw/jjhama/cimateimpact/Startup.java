@@ -44,18 +44,20 @@ public class Startup extends Fragment {
         callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) rootView.findViewById(R.id.login_button);
         loginButton.setFragment(this);
+        loginButton.setReadPermissions("email");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+
             @Override
             public void onSuccess(LoginResult loginResult) {
-                Log.v(TAG, "Success");
+                Log.v(TAG, "Successs");
                 Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT);
                 toast.show();
                 //send the user to the signin page
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.container, new ProfileFragment())
-                        .addToBackStack(null)
-                        .commit();
+//                getActivity().getSupportFragmentManager()
+//                        .beginTransaction()
+//                        .replace(R.id.container, new ProfileFragment())
+//                        .addToBackStack(null)
+//                        .commit();
             }
 
             @Override
