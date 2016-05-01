@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed335784-8de1-45ec-8396-a09f8b606a61" name="Default" comment="" />
+    <list default="true" id="ed335784-8de1-45ec-8396-a09f8b606a61" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ClimateImpact/.idea/misc.xml" afterPath="$PROJECT_DIR$/ClimateImpact/.idea/misc.xml" />
+    </list>
     <ignored path="climateimpacttemp.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +32,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="580" />
-    <option name="y" value="191" />
+    <option name="x" value="1074" />
+    <option name="y" value="166" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -62,15 +66,15 @@
         <subPane />
       </pane>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ClimateImpact" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
@@ -169,7 +173,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="580" y="191" width="1400" height="1000" extended-state="0" />
+    <frame x="1074" y="166" width="1400" height="1000" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

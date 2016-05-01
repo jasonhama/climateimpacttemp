@@ -1,5 +1,6 @@
 package edu.uw.jjhama.cimateimpact;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,18 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RadioButton;
+import android.widget.Toast;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+// Add this to the header of your file:
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 
 /**
  * Created by iguest on 4/21/16.
@@ -23,7 +36,16 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_startup);
+
+        //put the startup fragment in view
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new Startup())
+                .addToBackStack(null)
+                .commit();
+
+//zY00cczs2SG28RTn1bZQvsCftvI=
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -37,11 +59,7 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //put the startup fragment in view
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, new Startup())
-                .addToBackStack(null)
-                .commit();
+
     }
 
     @Override
@@ -181,5 +199,38 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
         setTitle(menuItem.getTitle());
         mDrawer.closeDrawers();
     }*/
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.everyDay:
+                if (checked)
+                    // Pirates are the best
+                    Log.v(TAG, "every day selected");
+                break;
+            case R.id.everyOtherDay:
+                if (checked)
+                    // Ninjas rule
+                    Log.v(TAG, "every other day selected");
+                break;
+            case R.id.everyWeek:
+                if (checked)
+                    // Ninjas rule
+                    Log.v(TAG, "every week selected");
+                break;
+            case R.id.everyOtherWeek:
+                if (checked)
+                    // Ninjas rule
+                    Log.v(TAG, "every other week selected");
+                break;
+            case R.id.everyMonth:
+                if (checked)
+                    // Ninjas rule
+                    Log.v(TAG, "every month selected");
+                break;
+        }
+    }
 
 }

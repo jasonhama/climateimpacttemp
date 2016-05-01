@@ -39,27 +39,21 @@
             android:layout_toLeftOf="@+id/hoursStart"
             android:layout_toStartOf="@+id/hoursStart" />
 
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/minutesStart"
+            android:inputType="time"
+            android:ems="3"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="End Time"
-            android:id="@+id/textView17"
-            android:layout_below="@+id/hoursStart"
-            android:layout_alignLeft="@+id/textView16"
-            android:layout_alignStart="@+id/textView16"
-            android:layout_gravity="center_vertical" />
+            android:text=":"
+            android:id="@+id/delimiterStart"
+            />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/minutesStart" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/minutesEnd"
-            android:layout_gravity="center_vertical" />
 
         <EditText
             android:layout_width="64dp"
@@ -71,6 +65,22 @@
             android:layout_alignLeft="@+id/hoursEnd"
             android:layout_alignStart="@+id/hoursEnd" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="End Time"
+            android:id="@+id/textView17"
+            android:layout_below="@+id/hoursStart"
+            android:layout_alignLeft="@+id/textView16"
+            android:layout_alignStart="@+id/textView16"
+            android:layout_gravity="center_vertical" />
         <EditText
             android:layout_width="64dp"
             android:layout_height="wrap_content"
@@ -81,6 +91,63 @@
             android:layout_alignRight="@+id/textView14"
             android:layout_alignEnd="@+id/textView14"
             android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:id="@+id/delimiterEnd"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="3"
+            android:id="@+id/minutesEnd"
+            android:layout_gravity="center_vertical" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Repeat Setting"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--every day-->
+            <RadioButton android:id="@+id/everyDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Every Day"
+                android:onClick="onRadioButtonClicked"/>
+            <!--every other day-->
+            <RadioButton android:id="@+id/everyOtherDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Every Other Day"
+                android:onClick="onRadioButtonClicked"/>
+            <!--every week-->
+            <RadioButton android:id="@+id/everyWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Every Week"
+                android:onClick="onRadioButtonClicked"/>
+            <!--every other week-->
+            <RadioButton android:id="@+id/everyOtherWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Every Other Week"
+                android:onClick="onRadioButtonClicked"/>
+            <!--every month-->
+            <RadioButton android:id="@+id/everyMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Every Month"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+    </LinearLayout>
 </LinearLayout>

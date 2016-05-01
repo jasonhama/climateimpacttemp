@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 /**
  * Created by iguest on 4/29/16.
@@ -56,4 +57,6 @@ public class Activity extends Fragment {
 
         return rootView;
     }
+
+
 }

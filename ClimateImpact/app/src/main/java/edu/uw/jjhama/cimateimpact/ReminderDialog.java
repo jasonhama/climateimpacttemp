@@ -30,11 +30,12 @@ public class ReminderDialog extends DialogFragment{
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
-        builder.setView(inflater.inflate(R.layout.alter_user_info_dialog, null))
+        builder.setView(inflater.inflate(R.layout.reminder_dialog, null))
                 // Add action buttons
                 .setPositiveButton("submit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
+                        Log.v(TAG, "Event Created");
                         // sign in the user ...
                         //Dialog f = (Dialog) dialog;
 
