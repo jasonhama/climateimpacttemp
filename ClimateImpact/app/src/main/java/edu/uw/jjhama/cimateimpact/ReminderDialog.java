@@ -1,5 +1,6 @@
 package edu.uw.jjhama.cimateimpact;
 
+import android.app.AlarmManager;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.NotificationManager;
@@ -17,12 +18,19 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Calendar;
 
 /**
  * Created by iguest on 4/29/16.
  */
 public class ReminderDialog extends DialogFragment{
 
+    public static String BROADCAST_ACTION =
+            "edu.uw.jjhama.cimateimpact.broadcasttest.SHOWTOAST";
+
+    Context context = getActivity();
     String action;
     NotificationCompat.Builder mBuilder;
     private static final String TAG = "ReminderDialog";
@@ -74,7 +82,10 @@ public class ReminderDialog extends DialogFragment{
                         NotificationManager mNotificationManager =
                                 (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
 
-                        mNotificationManager.notify(1, mBuilder.build());
+                        //mNotificationManager.notify(1, mBuilder.build());
+
+                        //setAlarm();
+                        startAlert();
 
                     }
 
@@ -99,5 +110,56 @@ public class ReminderDialog extends DialogFragment{
             final int childIndex = pos - firstListItemPosition;
             return listView.getChildAt(childIndex);
         }
+    }
+
+    private void setAlarm(){
+        Log.v(TAG, "setAlarm Called");
+
+
+//        AlarmManager mgr = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+//        Intent i = new Intent(context, Landing.class);
+//        PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
+//        Calendar myCal = Calendar.getInstance();
+//        long curTime = myCal.getTimeInMillis();
+//        myCal.setTimeInMillis(curTime + 50000);
+//        mgr.set(AlarmManager.RTC_WAKEUP, myCal.getTimeInMillis(), pi);
+//        Log.i("1", "alarm set for " + myCal.getTime().toLocaleString());
+//        Toast.makeText(getActivity().getApplicationContext(),"Alarm set for " + myCal.getTime().toLocaleString(), Toast.LENGTH_LONG).show();
+//        Log.v(TAG, "setAlarm Done.");
+
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(System.currentTimeMillis());
+        //cal.add(Calendar.HOUR_OF_DAY,hour);
+        //cal.add(Calendar.MINUTE, min);
+        Intent intent = new Intent(context,  MyBroadcastReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 1, intent,0);
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis() , pendingIntent);
+        Toast.makeText(context, "Alarm set", Toast.LENGTH_LONG).show();
+        Log.v(TAG, "setAlarm Done.");
+    }
+
+    public void startAlert() {
+        //EditText text = (EditText) f.findViewById(R.id.time);
+        //int i = Integer.parseInt(text.getText().toString());
+        Log.v(TAG, "startAlert called");
+        int i = 0;
+        Intent intent = new Intent(getActivity(), MyBroadcastReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                getActivity().getApplicationContext(), 234324243, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(getActivity().ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
+                + (i * 1000), pendingIntent);
+        Toast.makeText(getActivity(), "Alarm set in " + i + " seconds",
+                Toast.LENGTH_LONG).show();
+        Log.v(TAG, "startAlert finished");
+    }
+
+    public void sendBroadcast() {
+        Intent broadcast = new Intent();
+        broadcast.setAction(BROADCAST_ACTION);
+        broadcast.addCategory(Intent.CATEGORY_DEFAULT);
+        //sendBroadcast(broadcast);
     }
 }
