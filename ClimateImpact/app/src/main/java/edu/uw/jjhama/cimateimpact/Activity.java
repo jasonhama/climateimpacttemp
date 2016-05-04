@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 /**
  * Created by iguest on 4/29/16.
@@ -51,6 +52,10 @@ public class Activity extends Fragment {
                 Log.v(TAG, "Reminder was selected");
 
                 ReminderDialog reminderDialog = new ReminderDialog();
+                Bundle args = new Bundle();
+                String action = (String)((TextView) rootView.findViewById(R.id.action)).getText().toString();
+                args.putString("action", action);
+                reminderDialog.setArguments(args);
                 reminderDialog.show(getActivity().getFragmentManager(), "hello");
             }
         });

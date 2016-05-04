@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Plant a tree"
-        android:id="@+id/textView8"
+        android:id="@+id/action"
         android:layout_above="@+id/info"
         android:textColor="@color/white"
         android:layout_alignLeft="@+id/reminder"

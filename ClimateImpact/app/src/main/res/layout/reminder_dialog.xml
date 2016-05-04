@@ -43,7 +43,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/minutesStart"
+            android:id="@+id/hoursStart"
             android:inputType="time"
             android:ems="3"/>
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:inputType="time"
             android:ems="10"
-            android:id="@+id/hoursStart"
+            android:id="@+id/minutesStart"
             android:layout_alignTop="@+id/textView15"
             android:layout_alignLeft="@+id/hoursEnd"
             android:layout_alignStart="@+id/hoursEnd" />

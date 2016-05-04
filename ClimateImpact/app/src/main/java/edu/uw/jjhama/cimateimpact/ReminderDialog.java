@@ -16,12 +16,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 /**
  * Created by iguest on 4/29/16.
  */
 public class ReminderDialog extends DialogFragment{
 
+    String action;
     NotificationCompat.Builder mBuilder;
     private static final String TAG = "ReminderDialog";
 
@@ -31,6 +33,8 @@ public class ReminderDialog extends DialogFragment{
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        Bundle bundle = getArguments();
+        action = bundle.getString("action");
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -46,9 +50,8 @@ public class ReminderDialog extends DialogFragment{
                         // sign in the user ...
                         //make a personalized notification
                         Dialog f = (Dialog) dialog;
-
                         EditText firstName = (EditText) f.findViewById(R.id.firstName);
-
+                        String startTime = ((String) ((EditText) f.findViewById(R.id.hoursStart)).getText().toString()) + ":" + ((String) ((EditText) f.findViewById(R.id.minutesStart)).getText().toString());
 
                         //Log.v(TAG, "Submit was selected \n username: "+ );
                         Context context = getActivity();
@@ -57,7 +60,7 @@ public class ReminderDialog extends DialogFragment{
                                 new NotificationCompat.Builder(getActivity())
                                         .setSmallIcon(R.drawable.ic_menu_send)
                                         .setContentTitle("Reminder Set!")
-                                        .setContentText(firstName + " - Way to go!!!");
+                                        .setContentText("Reminder set to " + action + " at " + startTime + ".");
                         Intent resultIntent = new Intent(context, Landing.class);
                         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
                         stackBuilder.addParentStack(Landing.class);
