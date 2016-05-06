@@ -35,6 +35,7 @@ public class Signin extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.signin, container, false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         Button submit = (Button) rootView.findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener(){
@@ -42,6 +43,7 @@ public class Signin extends Fragment {
             @Override
             public void onClick(View v){
                 Log.v(TAG, "Hello! ==========================================================");
+
 
 
 

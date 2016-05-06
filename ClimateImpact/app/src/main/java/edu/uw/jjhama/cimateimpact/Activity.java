@@ -27,6 +27,11 @@ public class Activity extends Fragment {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.activity, container, false);
         Button info = (Button) rootView.findViewById(R.id.info);
+
+//        Assassin assassin = (Assassin)getActivity().getApplication();
+//        player = assassin.getPlayer();
+        //AccountDetails accountDetails = (AccountDetails) getActivity().getApplication();
+
         info.setOnClickListener(new View.OnClickListener() {
 
             @Override

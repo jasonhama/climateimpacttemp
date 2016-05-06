@@ -90,7 +90,12 @@
             android:layout_below="@+id/hoursStart"
             android:layout_alignRight="@+id/textView14"
             android:layout_alignEnd="@+id/textView14"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:nextFocusRight="@+id/minutesStart"
+            android:nextFocusDown="@+id/minutesStart"
+            android:nextFocusLeft="@+id/minutesStart"
+            android:nextFocusUp="@+id/minutesStart"
+            android:nextFocusForward="@+id/minutesStart"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -103,14 +108,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="3"
+            android:inputType="time"
+
             android:id="@+id/minutesEnd"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Repeat Setting"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Repeat Setting"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

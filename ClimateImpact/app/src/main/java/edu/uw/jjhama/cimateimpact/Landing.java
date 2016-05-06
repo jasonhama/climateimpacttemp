@@ -1,5 +1,6 @@
 package edu.uw.jjhama.cimateimpact;
 
+import android.accounts.Account;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -39,6 +40,7 @@ import java.security.Signature;
 public class Landing extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "Landing";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,14 +129,19 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
         FragmentTransaction ft = fragmentManager.beginTransaction();
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        //AccountDetails accountDetails = ((AccountDetails) this.getApplicationContext());
+        //AccountDetails accountDetails = new AccountDetails().getAccountDetails();
         if (id == R.id.profile) {
             Log.v(TAG, "camera");
-            //put the startup fragment in view
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new ProfileFragment())
-                    .addToBackStack(null)
-                    .commit();
+            //if(accountDetails.getfName() == null) {
+                //put the startup fragment in view
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, new ProfileFragment())
+                        .addToBackStack(null)
+                        .commit();
+            //} else {
+                //Toast.makeText(this,"You must be logged in to get to Profile", Toast.LENGTH_LONG).show();
+            //}
             // Handle the camera action
         } else if (id == R.id.signup) {
             getSupportFragmentManager().beginTransaction()
@@ -148,15 +155,33 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
                     .commit();
         } else if (id == R.id.activities) {
             Log.v(TAG, "hihihihihihi");
+            //if (accountDetails.getfName() == null) {
+                //put the startup fragment in view
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, new Activity())
+                        .addToBackStack(null)
+                        .commit();
+//            } else {
+//                Toast.makeText(this, "You must be logged in to get to Profile", Toast.LENGTH_LONG).show();
+//            }
+
+        } else if (id == R.id.landing) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new Activity())
+                    .replace(R.id.container, new Startup())
                     .addToBackStack(null)
                     .commit();
-        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.about) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, new AboutFragment())
+                        .addToBackStack(null)
+                        .commit();
         }
+//        else if (id == R.id.nav_share) {
+//
+//        } else if (id == R.id.nav_send) {
+//
+//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -253,6 +278,7 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
                     // Ninjas rule
                     Log.v(TAG, "every month selected");
                 break;
+
         }
     }
 

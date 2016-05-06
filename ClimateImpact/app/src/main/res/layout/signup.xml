@@ -17,6 +17,7 @@ android:background="@color/dark">
     android:textColor="@color/white"
     android:text="Please create an account to keep track of your action itemsand your performance"
     android:id="@+id/textView"
+
     android:layout_marginBottom="33dp"
     android:textSize="16dp"/>
 
@@ -33,6 +34,7 @@ android:background="@color/dark">
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:id="@+id/name"
@@ -49,6 +51,7 @@ android:background="@color/dark">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:text="Email Address: " />
         <EditText
@@ -60,7 +63,8 @@ android:background="@color/dark">
             android:textColorHint="@color/white"
             android:layout_below="@+id/name"
             android:layout_alignLeft="@+id/name"
-            android:layout_alignStart="@+id/name" />
+            android:layout_alignStart="@+id/name"
+            android:nextFocusDown="@+id/password"/>
     </LinearLayout>
 
     <LinearLayout
@@ -79,7 +83,9 @@ android:background="@color/dark">
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:id="@+id/password"
+            android:inputType="textEmailAddress"
             android:hint="Password"
+            android:nextFocusDown="@+id/confirmPassword"
             android:layout_above="@+id/confirmPassword"
             android:layout_alignRight="@+id/submit"
             android:layout_alignEnd="@+id/submit" />
@@ -89,6 +95,7 @@ android:background="@color/dark">
             android:id="@+id/confirmPassword"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
+            android:inputType="textEmailAddress"
             android:hint="Confirm Password"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />

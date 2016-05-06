@@ -18,8 +18,17 @@
             android:id="@+id/activities"
             android:icon="@drawable/ic_menu_manage"
             android:title="Activities" />
-    </group>
+        <item
+            android:id="@+id/landing"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Landing" />
 
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="About" />
+    </group>
+<!--
     <item android:title="Communicate">
         <menu>
             <item
@@ -32,5 +41,6 @@
                 android:title="Send" />
         </menu>
     </item>
+-->
 
 </menu>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,9 @@ public class Startup extends Fragment {
                              Bundle savedInstanceState){
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.startup, container, false);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
         Button signup = (Button) rootView.findViewById(R.id.signup);
         Button signin = (Button) rootView.findViewById(R.id.signin);
         callbackManager = CallbackManager.Factory.create();
@@ -85,12 +89,12 @@ public class Startup extends Fragment {
                 //signin.show(getActivity().getSupportFragmentManager());
 
 
-                ProfileFragment profileFragment = new ProfileFragment();
+                //Signup signupFragment = new Signup();
                 //profileFragment.setArguments(bundle);
 
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.container, profileFragment)
+                        .replace(R.id.container, new Signup())
                         .addToBackStack(null)
                         .commit();
                 /*
@@ -120,7 +124,5 @@ public class Startup extends Fragment {
             }
         });
         return rootView;
-
     }
-
 }

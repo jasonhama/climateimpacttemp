@@ -13,8 +13,10 @@ import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AlertDialog;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -47,6 +49,8 @@ public class ReminderDialog extends DialogFragment{
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
+
+
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(inflater.inflate(R.layout.reminder_dialog, null))
@@ -61,6 +65,18 @@ public class ReminderDialog extends DialogFragment{
                         EditText firstName = (EditText) f.findViewById(R.id.firstName);
                         String startTime = ((String) ((EditText) f.findViewById(R.id.hoursStart)).getText().toString()) + ":" + ((String) ((EditText) f.findViewById(R.id.minutesStart)).getText().toString());
 
+                        EditText timeStartHours = (EditText) f.findViewById(R.id.hoursStart);
+
+                        timeStartHours.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                            @Override
+                            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                                    Log.v(TAG, "HIHIHIHIHIHIHIHIHIHIHIHI");
+                                    return true;
+                                }
+                                return false;
+                            }
+                        });
                         //Log.v(TAG, "Submit was selected \n username: "+ );
                         Context context = getActivity();
 
@@ -82,10 +98,12 @@ public class ReminderDialog extends DialogFragment{
                         NotificationManager mNotificationManager =
                                 (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
 
-                        //mNotificationManager.notify(1, mBuilder.build());
+                        mNotificationManager.notify(1, mBuilder.build());
 
                         //setAlarm();
+
                         startAlert();
+                        Log.v(TAG, "");
 
                     }
 
@@ -162,4 +180,6 @@ public class ReminderDialog extends DialogFragment{
         broadcast.addCategory(Intent.CATEGORY_DEFAULT);
         //sendBroadcast(broadcast);
     }
+
+
 }

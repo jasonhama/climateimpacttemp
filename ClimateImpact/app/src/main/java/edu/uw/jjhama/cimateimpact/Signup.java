@@ -37,6 +37,9 @@ public class Signup extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.signup, container, false);
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
         Button submit = (Button) rootView.findViewById(R.id.submit);
         Button signin = (Button) rootView.findViewById(R.id.signin);
 
@@ -61,6 +64,9 @@ public class Signup extends Fragment {
                     if(password.length() > 0) {
                         if (password.equals(confirmPassword)) {
                             //send the user to the signin page
+                            AccountDetails accountDetails = new AccountDetails();
+                            accountDetails.setfName(name);
+                            accountDetails.setEmail(email);
                             Bundle bundle = new Bundle();
                             bundle.putString("name", name);
                             bundle.putString("email", email);
