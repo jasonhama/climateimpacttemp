@@ -72,7 +72,8 @@ public class Signup extends Fragment {
                             bundle.putString("email", email);
                             bundle.putInt("carbon", 0);
                             bundle.putInt("water", 0);
-                            //Todo:change fragment to ProfileFragment
+                            
+                            //Todo: create a new fragment (MapFragment) and change fragment to MapFragment
                             ProfileFragment profileFragment = new ProfileFragment();
                             profileFragment.setArguments(bundle);
 
