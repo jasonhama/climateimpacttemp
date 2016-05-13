@@ -62,6 +62,11 @@ public class Activity extends Fragment {
                 args.putString("action", action);
                 reminderDialog.setArguments(args);
                 reminderDialog.show(getActivity().getFragmentManager(), "hello");
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, new ActivityListFragment())
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 

@@ -43,8 +43,8 @@ public class ChangeUserDataFragment extends DialogFragment {
                         String firstName = ((EditText) f.findViewById(R.id.firstName)).getText().toString();
                         String lastName = ((EditText) f.findViewById(R.id.lastName)).getText().toString();
                         String zip = ((EditText) f.findViewById(R.id.zip)).getText().toString();
-                        String state = ((EditText) f.findViewById(R.id.state)).getText().toString();
-                        String country = ((EditText) f.findViewById(R.id.country)).getText().toString();
+                        //String state = ((EditText) f.findViewById(R.id.state)).getText().toString();
+                        //String country = ((EditText) f.findViewById(R.id.country)).getText().toString();
 
                         //todo: save to backend
                         //ProfileFragment g = new ProfileFragment();

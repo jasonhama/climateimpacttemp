@@ -35,8 +35,8 @@ public class ProfileFragment extends Fragment {
         TextView lName = (TextView) rootView.findViewById(R.id.lName);
         TextView carbon = (TextView) rootView.findViewById(R.id.carbon);
         TextView water = (TextView) rootView.findViewById(R.id.water);
-        TextView state = (TextView) rootView.findViewById(R.id.state);
-        TextView country = (TextView) rootView.findViewById(R.id.country);
+        //TextView state = (TextView) rootView.findViewById(R.id.state);
+        //TextView country = (TextView) rootView.findViewById(R.id.country);
         TextView zip = (TextView) rootView.findViewById(R.id.zip);
 
         //set the values to users account details
@@ -80,6 +80,7 @@ public class ProfileFragment extends Fragment {
                 Log.v(TAG, "alter user info");
                 ChangeUserDataFragment changeUserDataFragment = new ChangeUserDataFragment();
                 changeUserDataFragment.show(getActivity().getFragmentManager(), "hello");
+
             }
         });
 
