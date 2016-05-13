@@ -10,5 +10,15 @@
     <string name="action_settings">Settings</string>
     <string name="facebook_app_id">484940611708335</string>
     <string name="fb_login_protocol_scheme">zA9OrZ/CsCeQOLLm8oRxNja+wh0=</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 
 </resources>

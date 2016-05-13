@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 /**
  * Created by iguest on 5/12/16.
@@ -24,9 +25,24 @@ public class MapFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View rootView = inflater.inflate(R.layout.activity_list, container, false);
+        final View rootView = inflater.inflate(R.layout.map_layout, container, false);
         getActivity().setTitle("Map");
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+
+        // Here it is
+        ImageButton camBt = (ImageButton)rootView.findViewById(R.id.map);
+        camBt.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, new CountyFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
 
         Log.v(TAG, "Fragment loaded!");
 
