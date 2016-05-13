@@ -2,6 +2,7 @@ package edu.uw.jjhama.cimateimpact;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,8 @@ public class Activity extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.activity, container, false);
+        getActivity().setTitle("Activity");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         Button info = (Button) rootView.findViewById(R.id.info);
 
 //        Assassin assassin = (Assassin)getActivity().getApplication();

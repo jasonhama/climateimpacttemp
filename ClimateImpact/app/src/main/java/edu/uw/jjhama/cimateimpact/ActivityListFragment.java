@@ -27,6 +27,7 @@ public class ActivityListFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
 
+
         return rootView;
     }
 }

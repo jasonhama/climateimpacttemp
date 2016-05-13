@@ -23,6 +23,8 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.about_layout, container, false);
+        getActivity().setTitle("About");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         return rootView;
