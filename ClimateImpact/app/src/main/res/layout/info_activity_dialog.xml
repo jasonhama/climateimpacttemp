@@ -13,12 +13,14 @@
         android:layout_width="match_parent"
         android:id="@+id/explanation"
         android:layout_height="64dp"
+        android:padding="10dp"
         android:text="Planting a tree can lead to lowered carbon dioxide in the air."/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="64dp"
+        android:padding="10dp"
         android:id="@+id/stats"
-        android:text="Effects: Carbon points - 15"/>
+        android:text="Effects: +15 Carbon Points"/>
 
 </LinearLayout>
