@@ -109,7 +109,7 @@ android:background="@color/colorDarkGrey">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/red"
+            android:background="@color/colorGreen"
             android:text="Submit"
             android:id="@+id/submit"
             android:layout_below="@+id/confirmPassword"
@@ -118,7 +118,7 @@ android:background="@color/colorDarkGrey">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/red"
+            android:background="@color/colorGreen"
             android:text="Sign In"
             android:id="@+id/signin"
             android:layout_alignParentBottom="true"

@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:text="Submit"
             android:id="@+id/submit"
-            android:background="@color/red"
+            android:background="@color/colorGreen"
             android:layout_marginBottom="20dp"
             android:layout_above="@+id/signup"
             android:layout_centerHorizontal="true" />
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign Up"
-            android:background="@color/red"
+            android:background="@color/colorGreen"
             android:id="@+id/signup"
             android:layout_marginBottom="35dp"
             android:layout_alignParentBottom="true"
