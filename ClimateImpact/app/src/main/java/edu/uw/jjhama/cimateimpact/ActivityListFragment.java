@@ -3,6 +3,7 @@ package edu.uw.jjhama.cimateimpact;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class ActivityListFragment extends Fragment {
         getActivity().setTitle("Activity List");
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
+        Log.v(TAG, "Fragment loaded!");
 
 
         return rootView;

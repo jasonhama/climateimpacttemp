@@ -27,6 +27,11 @@
             android:id="@+id/about"
             android:icon="@drawable/ic_menu_manage"
             android:title="About" />
+
+        <item
+            android:id="@+id/map"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Map" />
     </group>
 <!--
     <item android:title="Communicate">

@@ -172,10 +172,16 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
                     .commit();
 
         } else if (id == R.id.about) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, new AboutFragment())
-                        .addToBackStack(null)
-                        .commit();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new AboutFragment())
+                    .addToBackStack(null)
+                    .commit();
+
+        } else if (id == R.id.map) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new MapFragment())
+                    .addToBackStack(null)
+                    .commit();
         }
 //        else if (id == R.id.nav_share) {
 //
