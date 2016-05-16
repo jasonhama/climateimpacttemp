@@ -50,7 +50,7 @@ public class Signin extends Fragment {
                 //send the user to the signin page
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.container, new ProfileFragment())
+                        .replace(R.id.container, new MapFragment())
                         .addToBackStack(null)
                         .commit();
             }
