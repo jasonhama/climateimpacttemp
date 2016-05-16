@@ -12,7 +12,7 @@ android:paddingTop="@dimen/activity_vertical_margin"
 android:background="@color/colorDarkGrey">
 
 <TextView
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textColor="@color/white"
     android:text="Please create an account to keep track of your action itemsand your performance"
@@ -27,12 +27,12 @@ android:background="@color/colorDarkGrey">
         android:orientation="vertical"
         android:layout_marginBottom="10dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="Name: " />
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
@@ -49,13 +49,13 @@ android:background="@color/colorDarkGrey">
         android:orientation="vertical"
         android:layout_marginBottom="10dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:textColor="@color/white"
             android:text="Email Address: " />
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/email"
             android:hint="Email"
@@ -73,12 +73,12 @@ android:background="@color/colorDarkGrey">
         android:orientation="vertical"
         android:layout_marginBottom="40dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:text="Password: " />
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -90,7 +90,7 @@ android:background="@color/colorDarkGrey">
             android:layout_alignRight="@+id/submit"
             android:layout_alignEnd="@+id/submit" />
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/confirmPassword"
             android:textColor="@color/white"
