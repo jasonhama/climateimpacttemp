@@ -58,6 +58,7 @@ public class ReminderDialog extends DialogFragment{
                 .setPositiveButton("submit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
+
                         Log.v(TAG, "Event Created");
                         // sign in the user ...
                         //make a personalized notification
@@ -77,33 +78,42 @@ public class ReminderDialog extends DialogFragment{
                                 return false;
                             }
                         });
-                        //Log.v(TAG, "Submit was selected \n username: "+ );
-                        Context context = getActivity();
+                        Log.v(TAG, startTime);
+                        if(!startTime.equals(":")) {
+                            //Log.v(TAG, "Submit was selected \n username: "+ );
+                            Context context = getActivity();
 
-                        NotificationCompat.Builder mBuilder =
-                                new NotificationCompat.Builder(getActivity())
-                                        .setSmallIcon(R.drawable.ic_menu_send)
-                                        .setContentTitle("Reminder Set!")
-                                        .setContentText("Reminder set to " + action + " at " + startTime + ".");
-                        Intent resultIntent = new Intent(context, Landing.class);
-                        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-                        stackBuilder.addParentStack(Landing.class);
-                        stackBuilder.addNextIntent(resultIntent);
-                        PendingIntent resultPendingIntent =
-                                stackBuilder.getPendingIntent(
-                                        0,
-                                        PendingIntent.FLAG_UPDATE_CURRENT
-                                );
-                        mBuilder.setContentIntent(resultPendingIntent);
-                        NotificationManager mNotificationManager =
-                                (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+                            NotificationCompat.Builder mBuilder =
+                                    new NotificationCompat.Builder(getActivity())
+                                            .setSmallIcon(R.drawable.ic_menu_send)
+                                            .setContentTitle("Reminder Set!")
+                                            .setAutoCancel(true)
+                                            .setContentText("Reminder set to " + action + " at " + startTime + ".");
+                            Intent resultIntent = new Intent(context, Landing.class);
+                            TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+                            stackBuilder.addParentStack(Landing.class);
+                            stackBuilder.addNextIntent(resultIntent);
+                            PendingIntent resultPendingIntent =
+                                    stackBuilder.getPendingIntent(
+                                            0,
+                                            PendingIntent.FLAG_UPDATE_CURRENT
+                                    );
+                            mBuilder.setContentIntent(resultPendingIntent);
+                            NotificationManager mNotificationManager =
+                                    (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
 
-                        mNotificationManager.notify(1, mBuilder.build());
 
-                        //setAlarm();
+                            mNotificationManager.notify(1, mBuilder.build());
 
-                        startAlert();
-                        Log.v(TAG, "");
+                            //setAlarm();
+
+                            startAlert();
+                            Log.v(TAG, "");
+                        } else {
+                            Log.v(TAG, "AAAAAHHHH!!!!");
+                            Toast.makeText(getActivity(), "Time for alarm not set", Toast.LENGTH_LONG).show();
+                            ReminderDialog.this.getDialog().cancel();
+                        }
 
                     }
 
