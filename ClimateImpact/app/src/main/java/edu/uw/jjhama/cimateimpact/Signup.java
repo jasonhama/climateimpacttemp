@@ -74,12 +74,14 @@ public class Signup extends Fragment {
                             bundle.putInt("water", 0);
                             
                             //Todo: create a new fragment (MapFragment) and change fragment to MapFragment
-                            ProfileFragment profileFragment = new ProfileFragment();
-                            profileFragment.setArguments(bundle);
+                            //ProfileFragment profileFragment = new ProfileFragment();
+                            //profileFragment.setArguments(bundle);
+                            MapFragment mapFragment = new MapFragment();
+                            mapFragment.setArguments(bundle);
 
                             getActivity().getSupportFragmentManager()
                                     .beginTransaction()
-                                    .replace(R.id.container, profileFragment)
+                                    .replace(R.id.container, mapFragment)
                                     .addToBackStack(null)
                                     .commit();
                         } else {
