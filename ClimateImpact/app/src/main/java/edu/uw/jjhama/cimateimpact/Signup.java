@@ -21,6 +21,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.firebase.client.Firebase;
+
+import java.util.UUID;
+
 /**
  * Created by iguest on 4/21/16.
  */
@@ -37,6 +41,7 @@ public class Signup extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.signup, container, false);
+        Firebase.setAndroidContext(getActivity());
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
@@ -76,6 +81,26 @@ public class Signup extends Fragment {
                             //Todo: create a new fragment (MapFragment) and change fragment to MapFragment
                             //ProfileFragment profileFragment = new ProfileFragment();
                             //profileFragment.setArguments(bundle);
+
+                            //add user to firebase
+                            Firebase ref = new Firebase("https://climateimpact.firebaseio.com/");
+                            UUID uuid = UUID.randomUUID();
+                            Firebase userRef = ref.child("users").child(email);
+                            //set the name
+                            userRef.child("uuid").setValue(uuid + "");
+                            userRef.child("name").setValue(name);
+                            userRef.child("password").setValue(password);
+                            userRef.child("carbon").setValue(0);
+                            userRef.child("water").setValue(0);
+                            //zipcode
+                            //current_score
+                            //carbon_footprint
+                            //firstname
+                            //lastname
+                            //profile pic
+                            //default location
+                            //userRef.setValue(name);
+                            Log.v(TAG, "user created");
                             MapFragment mapFragment = new MapFragment();
                             mapFragment.setArguments(bundle);
 

@@ -1,5 +1,6 @@
 package edu.uw.jjhama.cimateimpact;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -11,13 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
 
 import junit.framework.Test;
 
@@ -29,6 +35,35 @@ public class Startup extends Fragment {
     private static final String TAG = "Startup";
     CallbackManager callbackManager;
     private LoginButton loginButton;
+
+    /* *************************************
+     *              GENERAL                *
+     ***************************************/
+    /* TextView that is used to display information about the logged in user */
+    private TextView mLoggedInStatusTextView;
+
+    /* A dialog that is presented until the Firebase authentication finished. */
+    private ProgressDialog mAuthProgressDialog;
+
+    /* A reference to the Firebase */
+    private Firebase mFirebaseRef;
+
+    /* Data from the authenticated user */
+    private AuthData mAuthData;
+
+    /* Listener for Firebase session changes */
+    private Firebase.AuthStateListener mAuthStateListener;
+
+    /* *************************************
+     *              FACEBOOK               *
+     ***************************************/
+    /* The login button for Facebook */
+    private LoginButton mFacebookLoginButton;
+    /* The callback manager for Facebook */
+    private CallbackManager mFacebookCallbackManager;
+    /* Used to track user logging in/out off Facebook */
+    private AccessTokenTracker mFacebookAccessTokenTracker;
+
 
     public Startup(){
         //required empty
@@ -42,6 +77,20 @@ public class Startup extends Fragment {
         final View rootView = inflater.inflate(R.layout.startup, container, false);
 
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
+//        /* *************************************
+//         *              FACEBOOK               *
+//         ***************************************/
+//        /* Load the Facebook login button and set up the tracker to monitor access token changes */
+//        mFacebookCallbackManager = CallbackManager.Factory.create();
+//        mFacebookLoginButton = (LoginButton) findViewById(R.id.login_with_facebook);
+//        mFacebookAccessTokenTracker = new AccessTokenTracker() {
+//            @Override
+//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+//                Log.i(TAG, "Facebook.AccessTokenTracker.OnCurrentAccessTokenChanged");
+//                .onFacebookAccessTokenChange(currentAccessToken);
+//            }
+//        };
 
         Button signup = (Button) rootView.findViewById(R.id.signup);
         Button signin = (Button) rootView.findViewById(R.id.signin);
