@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
@@ -35,6 +36,7 @@ public class Signin extends Fragment {
 
     private static final String TAG = "Signin";
 
+    AccountDetails accountDetails;
 
 
     public Signin(){
@@ -56,35 +58,58 @@ public class Signin extends Fragment {
 
             @Override
             public void onClick(View v){
-                Log.v(TAG, "Hello! ==========================================================");
-
-
                 String email = (String) ((EditText) rootView.findViewById(R.id.email)).getText().toString();
-                String password = (String) ((EditText) rootView.findViewById(R.id.password)).getText().toString();
+                final String password = (String) ((EditText) rootView.findViewById(R.id.password)).getText().toString();
                 Log.v(TAG, "Email : " + email + "\nPassword : " + password);
-
                 Firebase ref = new Firebase("https://climateimpact.firebaseio.com/");
-                Firebase userRef = ref.child("users").child(email);
-
-
-                userRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
+                Firebase userRef = ref.child("users").child(email).child("password");
+                //Log.v(TAG, userRef.child("password").toString());
+                userRef.addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onAuthenticated(AuthData authData) {
-                        //System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
-                        Log.v(TAG, "Success!");
-                        //send the user to the signin page
-                        getActivity().getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.container, new MapFragment())
-                                .addToBackStack(null)
-                                .commit();
+                    public void onDataChange(DataSnapshot snapshot) {
+                        Log.v(TAG, "" + snapshot.getValue());
+                        if(snapshot.getValue() != null){
+                            if(snapshot.getValue().equals(password)){
+                                Log.v(TAG, "Success! email and password match!");
+                                accountDetails = new AccountDetails("a","a","a", "k");
+                                getActivity().getSupportFragmentManager()
+                                        .beginTransaction()
+                                        .replace(R.id.container, new ProfileFragment())
+                                        .addToBackStack(null)
+                                        .commit();
+                            } else {
+                                //password is incorrect
+                                Toast.makeText(getActivity(),"Login attempt failed!", Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            //user does not exist
+                            Toast.makeText(getActivity(),"Login attempt failed!", Toast.LENGTH_LONG).show();
+                        }
+
                     }
                     @Override
-                    public void onAuthenticationError(FirebaseError firebaseError) {
-                        // there was an error
-                        Log.v(TAG, "ERROR+!+!+!+!+!+!+!");
+                    public void onCancelled(FirebaseError firebaseError) {
+                        Log.v(TAG, "The read failed: " + firebaseError.getMessage());
                     }
                 });
+//                userRef.authWithPassword(email, password, new Firebase.AuthResultHandler() {
+//                    @Override
+//                    public void onAuthenticated(AuthData authData) {
+//                        //System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+//                        Log.v(TAG, "Success!");
+//                        //send the user to the signin page
+//                        getActivity().getSupportFragmentManager()
+//                                .beginTransaction()
+//                                .replace(R.id.container, new MapFragment())
+//                                .addToBackStack(null)
+//                                .commit();
+//                    }
+//                    @Override
+//                    public void onAuthenticationError(FirebaseError firebaseError) {
+//                        // there was an error
+//                        Log.v(TAG, "ERROR+!+!+!+!+!+!+!");
+//                    }
+//                });
 
 
             }

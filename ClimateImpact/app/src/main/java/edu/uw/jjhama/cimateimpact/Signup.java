@@ -22,7 +22,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -84,6 +86,18 @@ public class Signup extends Fragment {
 
                             //add user to firebase
                             Firebase ref = new Firebase("https://climateimpact.firebaseio.com/");
+
+//                            ref.createUser("bobtony@firebase.com", "correcthorsebatterystaple", new Firebase.ValueResultHandler<Map<String, Object>>() {
+//                                @Override
+//                                public void onSuccess(Map<String, Object> result) {
+//                                    Log.v(TAG, "user created");
+//                                }
+//                                @Override
+//                                public void onError(FirebaseError firebaseError) {
+//                                    // there was an error
+//                                    Log.v(TAG, "error on creating user");
+//                                }
+//                            });
                             UUID uuid = UUID.randomUUID();
                             Firebase userRef = ref.child("users").child(email);
                             //set the name

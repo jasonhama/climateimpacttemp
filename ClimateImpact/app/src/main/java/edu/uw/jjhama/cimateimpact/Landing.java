@@ -40,6 +40,7 @@ import java.security.Signature;
 public class Landing extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private static final String TAG = "Landing";
+    AccountDetails accountDetails;
 
 
     @Override
