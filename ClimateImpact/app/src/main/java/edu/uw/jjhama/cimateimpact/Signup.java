@@ -21,8 +21,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
+//import com.firebase.client.Firebase;
+//import com.firebase.client.FirebaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 import java.util.Map;
 import java.util.UUID;
@@ -33,6 +36,7 @@ import java.util.UUID;
 public class Signup extends Fragment {
 
     private static final String TAG = "Signup";
+    private DatabaseReference mDatabase;
 
     public Signup(){
 
@@ -41,10 +45,19 @@ public class Signup extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.signup, container, false);
-        Firebase.setAndroidContext(getActivity());
+        //Firebase.setAndroidContext(getActivity());
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
+        //mDatabase.child("users");
 
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference myRef = database.getReference();
+
+        //myRef.child("testing").setValue("Hello, World!");
+        Log.v(TAG, "attemping to save a message");
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         Button submit = (Button) rootView.findViewById(R.id.submit);
@@ -85,7 +98,16 @@ public class Signup extends Fragment {
                             //profileFragment.setArguments(bundle);
 
                             //add user to firebase
-                            Firebase ref = new Firebase("https://climateimpact.firebaseio.com/");
+                            //Firebase ref = new Firebase("https://climateimpact.firebaseio.com/");
+
+                            UUID uuid = UUID.randomUUID();
+                            mDatabase = mDatabase.child(email);
+                            //mDatabase.child("users").child(email);
+                            mDatabase.child("uuid").setValue(uuid + "");
+                            mDatabase.child("name").setValue(name);
+                            mDatabase.child("password").setValue(password);
+                            mDatabase.child("carbon").setValue(0);
+                            mDatabase.child("water").setValue(0);
 
 //                            ref.createUser("bobtony@firebase.com", "correcthorsebatterystaple", new Firebase.ValueResultHandler<Map<String, Object>>() {
 //                                @Override
@@ -98,14 +120,14 @@ public class Signup extends Fragment {
 //                                    Log.v(TAG, "error on creating user");
 //                                }
 //                            });
-                            UUID uuid = UUID.randomUUID();
-                            Firebase userRef = ref.child("users").child(email);
-                            //set the name
-                            userRef.child("uuid").setValue(uuid + "");
-                            userRef.child("name").setValue(name);
-                            userRef.child("password").setValue(password);
-                            userRef.child("carbon").setValue(0);
-                            userRef.child("water").setValue(0);
+//                            UUID uuid = UUID.randomUUID();
+//                            Firebase userRef = ref.child("users").child(email);
+//                            //set the name
+//                            userRef.child("uuid").setValue(uuid + "");
+//                            userRef.child("name").setValue(name);
+//                            userRef.child("password").setValue(password);
+//                            userRef.child("carbon").setValue(0);
+//                            userRef.child("water").setValue(0);
                             //zipcode
                             //current_score
                             //carbon_footprint

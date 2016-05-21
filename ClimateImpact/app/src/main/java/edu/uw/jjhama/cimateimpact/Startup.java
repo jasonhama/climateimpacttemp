@@ -22,8 +22,8 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.firebase.client.AuthData;
-import com.firebase.client.Firebase;
+//import com.firebase.client.AuthData;
+//import com.firebase.client.Firebase;
 
 import junit.framework.Test;
 
@@ -46,13 +46,13 @@ public class Startup extends Fragment {
     private ProgressDialog mAuthProgressDialog;
 
     /* A reference to the Firebase */
-    private Firebase mFirebaseRef;
-
-    /* Data from the authenticated user */
-    private AuthData mAuthData;
-
-    /* Listener for Firebase session changes */
-    private Firebase.AuthStateListener mAuthStateListener;
+//    private Firebase mFirebaseRef;
+//
+//    /* Data from the authenticated user */
+//    private AuthData mAuthData;
+//
+//    /* Listener for Firebase session changes */
+//    private Firebase.AuthStateListener mAuthStateListener;
 
     /* *************************************
      *              FACEBOOK               *

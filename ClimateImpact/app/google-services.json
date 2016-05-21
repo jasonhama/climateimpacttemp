@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "30382938345",
+    "firebase_url": "https://climatecapstone.firebaseio.com",
+    "project_id": "climatecapstone",
+    "storage_bucket": "climatecapstone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30382938345:android:1137563ae53adb52",
+        "android_client_info": {
+          "package_name": "edu.uw.jjhama.cimateimpact"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30382938345-mt16le90fcuu6hpashsnir28l4il1mrf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyLVpGJR61uhrDMIokKXV02hk4QWUqFww"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
