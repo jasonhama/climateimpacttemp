@@ -49,15 +49,7 @@ public class Signup extends Fragment {
 
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.signup, container, false);
-        //Firebase.setAndroidContext(getActivity());
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
-        //mDatabase.child("users");
-
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference();
-
-        //myRef.child("testing").setValue("Hello, World!");
-        Log.v(TAG, "attemping to save a message");
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         Button submit = (Button) rootView.findViewById(R.id.submit);
@@ -88,10 +80,10 @@ public class Signup extends Fragment {
                             accountDetails.setfName(name);
                             accountDetails.setEmail(email);
                             Bundle bundle = new Bundle();
-                            bundle.putString("name", name);
+//                            bundle.putString("name", name);
                             bundle.putString("email", email);
-                            bundle.putInt("carbon", 0);
-                            bundle.putInt("water", 0);
+//                            bundle.putInt("carbon", 0);
+//                            bundle.putInt("water", 0);
                             
                             //Todo: create a new fragment (MapFragment) and change fragment to MapFragment
                             //ProfileFragment profileFragment = new ProfileFragment();
@@ -108,6 +100,9 @@ public class Signup extends Fragment {
                             mDatabase.child("password").setValue(password);
                             mDatabase.child("carbon").setValue(0);
                             mDatabase.child("water").setValue(0);
+                            mDatabase.child("fName").setValue("first name");
+                            mDatabase.child("lName").setValue("last name");
+                            mDatabase.child("zip").setValue("not yet set");
 
 //                            ref.createUser("bobtony@firebase.com", "correcthorsebatterystaple", new Firebase.ValueResultHandler<Map<String, Object>>() {
 //                                @Override
