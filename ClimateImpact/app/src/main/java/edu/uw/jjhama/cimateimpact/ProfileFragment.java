@@ -68,24 +68,14 @@ public class ProfileFragment extends Fragment {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                //set variables
-                waterAmount[0] = String.valueOf(snapshot.child("water").getValue());
-                Log.v(TAG, "");
-                //waterAmount[0] = "a";
-                Log.v(TAG, "--------------------------------------------------");
-                Log.v(TAG, snapshot.child("water") + "");
-                //Log.v(TAG, snapshot.child("uuid").getValue() + "");
-                Log.v(TAG, "--------------------------------------------------");
-                carbonAmount[0] = String.valueOf(snapshot.child("carbon").getValue() + "");
-                //carbonAmount[0] = "b";
-                name = (String) snapshot.child("name").getValue();
 
-                //todo:username, firstname, lastname, zip
-                Log.v(TAG, snapshot.child("zip") + "");
+                //get data from database and sets variables
+                waterAmount[0] = String.valueOf(snapshot.child("water").getValue());
+                carbonAmount[0] = String.valueOf(snapshot.child("carbon").getValue() + "");
+                name = (String) snapshot.child("name").getValue();
                 zipValue = (String) snapshot.child("zip").getValue();
                 fName = (String) snapshot.child("fName").getValue();
                 lName = (String) snapshot.child("lName").getValue();
-                Log.v(TAG, waterAmount[0] + carbonAmount[0] + zipValue + fName + lName + name);
 
                 //get the different textviews I want to manipulate
                 TextView firstName = (TextView) rootView.findViewById(R.id.fName);
@@ -103,6 +93,8 @@ public class ProfileFragment extends Fragment {
                 zip.setText(zipValue);
                 Log.v(TAG, zipValue);
                 username.setText(name);
+
+                Log.v(TAG, "User data has been loaded!");
 
             }
 
