@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="brief description of the action. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            android:text="Droplets and particiles of the pine smelling perfume given off by pine trees help cool the area by reflecting heat, cooling the area affecting local and potentially global temperatures."
             android:textColor="@color/white"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -73,7 +73,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="brief description of the action. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            android:text="Plastic use releases at least 100 million tons, and maybe as much as 500 million tons, of carbon dioxide into the atmosphere each year. Recycle plastic and save 30 to 150 million tons of CO2 annually."
             android:textColor="@color/white"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -116,13 +116,13 @@
             android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Dispose salmon bones and leftover"
+            android:text="Implement rain garden"
             android:id="@+id/textView11"
             android:layout_marginBottom="10dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="brief description of the action. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            android:text="Rain gardens mimic natural processes for filtering and storing precipitation, thereby reduce the amount of stormwater runoff in an area."
             android:textColor="@color/white"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
