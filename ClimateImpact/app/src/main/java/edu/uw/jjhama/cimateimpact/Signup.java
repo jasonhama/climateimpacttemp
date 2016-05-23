@@ -30,22 +30,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * Created by iguest on 4/21/16.
- */
 public class Signup extends Fragment {
 
     private static final String TAG = "Signup";
     private DatabaseReference mDatabase;
 
     public Signup(){
-
+        //required empty constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.signup, container, false);
@@ -59,42 +55,25 @@ public class Signup extends Fragment {
 
             @Override
             public void onClick(View v){
-                Log.v(TAG, "Hello! ==========================================================");
 
                 //gets the users information
-                EditText nameET = (EditText) rootView.findViewById(R.id.name);
-                EditText emailET = (EditText) rootView.findViewById(R.id.email);
-                EditText passwordET = (EditText) rootView.findViewById(R.id.password);
-                EditText confirmPasswordET = (EditText) rootView.findViewById(R.id.confirmPassword);
-                String name = nameET.getText().toString();
-                String email = emailET.getText().toString();
-                String password = passwordET.getText().toString();
-                String confirmPassword = confirmPasswordET.getText().toString();
+                String name = ((EditText) rootView.findViewById(R.id.name)).getText().toString();
+                String email = ((EditText) rootView.findViewById(R.id.email)).getText().toString();
+                String password = ((EditText) rootView.findViewById(R.id.password)).getText().toString();
+                String confirmPassword = ((EditText) rootView.findViewById(R.id.confirmPassword)).getText().toString();
 
 
                 if(name != null && email != null) {
                     if(password.length() > 0) {
                         if (password.equals(confirmPassword)) {
-                            //send the user to the signin page
-                            AccountDetails accountDetails = new AccountDetails();
-                            accountDetails.setfName(name);
-                            accountDetails.setEmail(email);
+
+                            //pack up a bundle
                             Bundle bundle = new Bundle();
-//                            bundle.putString("name", name);
                             bundle.putString("email", email);
-//                            bundle.putInt("carbon", 0);
-//                            bundle.putInt("water", 0);
                             
-                            //Todo: create a new fragment (MapFragment) and change fragment to MapFragment
-                            //ProfileFragment profileFragment = new ProfileFragment();
-                            //profileFragment.setArguments(bundle);
-
-                            //add user to firebase
-                            //Firebase ref = new Firebase("https://climateimpact.firebaseio.com/");
-
+                            //creates a new user on Firebase
                             UUID uuid = UUID.randomUUID();
                             mDatabase = mDatabase.child(email);
-                            //mDatabase.child("users").child(email);
                             mDatabase.child("uuid").setValue(uuid + "");
                             mDatabase.child("name").setValue(name);
                             mDatabase.child("password").setValue(password);
@@ -103,26 +82,6 @@ public class Signup extends Fragment {
                             mDatabase.child("fName").setValue("first name");
                             mDatabase.child("lName").setValue("last name");
                             mDatabase.child("zip").setValue("not yet set");
-
-//                            ref.createUser("bobtony@firebase.com", "correcthorsebatterystaple", new Firebase.ValueResultHandler<Map<String, Object>>() {
-//                                @Override
-//                                public void onSuccess(Map<String, Object> result) {
-//                                    Log.v(TAG, "user created");
-//                                }
-//                                @Override
-//                                public void onError(FirebaseError firebaseError) {
-//                                    // there was an error
-//                                    Log.v(TAG, "error on creating user");
-//                                }
-//                            });
-//                            UUID uuid = UUID.randomUUID();
-//                            Firebase userRef = ref.child("users").child(email);
-//                            //set the name
-//                            userRef.child("uuid").setValue(uuid + "");
-//                            userRef.child("name").setValue(name);
-//                            userRef.child("password").setValue(password);
-//                            userRef.child("carbon").setValue(0);
-//                            userRef.child("water").setValue(0);
                             //zipcode
                             //current_score
                             //carbon_footprint
@@ -130,7 +89,7 @@ public class Signup extends Fragment {
                             //lastname
                             //profile pic
                             //default location
-                            //userRef.setValue(name);
+
                             Log.v(TAG, "user created");
                             MapFragment mapFragment = new MapFragment();
                             mapFragment.setArguments(bundle);
@@ -157,7 +116,6 @@ public class Signup extends Fragment {
 
             @Override
             public void onClick(View v){
-                Log.v(TAG, "Helasdfasdfasdfasdflo! ==========================================================");
 
                 //send the user to the signin page
                 //Todo:change fragment to Signin

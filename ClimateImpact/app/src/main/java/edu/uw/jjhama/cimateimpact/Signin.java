@@ -23,7 +23,7 @@ public class Signin extends Fragment {
     private DatabaseReference mDatabase;
 
     public Signin(){
-
+        //required empty constructor
     }
 
     @Override
@@ -37,14 +37,15 @@ public class Signin extends Fragment {
 
             @Override
             public void onClick(View v){
-                final String email = (String) ((EditText) rootView.findViewById(R.id.email)).getText().toString();
-                final String password = (String) ((EditText) rootView.findViewById(R.id.password)).getText().toString();
+                final String email = ((EditText) rootView.findViewById(R.id.email)).getText().toString();
+                final String password = ((EditText) rootView.findViewById(R.id.password)).getText().toString();
                 Log.v(TAG, "Email : " + email + "\nPassword : " + password);
 
                 //check if the user input an email
                 if (!email.equals("")){
 
                     Log.v(TAG, "email exists");
+
                     //checks if the user input a password
                     if (!password.equals("")) {
 

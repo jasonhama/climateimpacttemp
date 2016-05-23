@@ -55,9 +55,11 @@ public class ProfileFragment extends Fragment {
 
         //set the values to users account details
 
-        //get email from
+        //get email from previous fragment
         Bundle getBundle = getArguments();
-        email = getBundle.getString("email");
+        if(getBundle.getString("email") != null) {
+            email = getBundle.getString("email");
+        }
 
 //        String name = "";
 //        final String[] waterAmount = {"0"};
@@ -127,8 +129,25 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.v(TAG, "alter user info");
-                ChangeUserDataFragment changeUserDataFragment = new ChangeUserDataFragment();
-                changeUserDataFragment.show(getActivity().getFragmentManager(), "hello");
+
+                Bundle bundle = new Bundle();
+                bundle.putString("email", email);
+                final ChangeUserDataFragment changeUserDataFragment = new ChangeUserDataFragment();
+                changeUserDataFragment.setArguments(bundle);
+                new Handler().post(new Runnable() {
+                    public void run() {
+//                        ChangeUserDataFragment changeUserDataFragment = new ChangeUserDataFragment();
+                        changeUserDataFragment.show(getActivity().getFragmentManager(), "hello");
+//                        getActivity().getSupportFragmentManager()
+//                                .beginTransaction()
+//                                .replace(R.id.container, profileFragment)
+//                                .addToBackStack(null)
+//                                .commit();
+                    }
+                });
+
+//                ChangeUserDataFragment changeUserDataFragment = new ChangeUserDataFragment();
+//                changeUserDataFragment.show(getActivity().getFragmentManager(), "hello");
 
             }
         });
