@@ -26,7 +26,7 @@ public class MapFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.map_layout, container, false);
-        getActivity().setTitle("Map");
+        getActivity().setTitle("My Environment");
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
         // Here it is

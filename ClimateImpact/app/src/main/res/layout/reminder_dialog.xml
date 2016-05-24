@@ -130,36 +130,49 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <!--every day-->
-            <RadioButton android:id="@+id/everyDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Every Day"
-                android:onClick="onRadioButtonClicked"/>
-            <!--every other day-->
-            <RadioButton android:id="@+id/everyOtherDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Every Other Day"
-                android:onClick="onRadioButtonClicked"/>
-            <!--every week-->
-            <RadioButton android:id="@+id/everyWeek"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Every Week"
-                android:onClick="onRadioButtonClicked"/>
-            <!--every other week-->
-            <RadioButton android:id="@+id/everyOtherWeek"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Every Other Week"
-                android:onClick="onRadioButtonClicked"/>
-            <!--every month-->
-            <RadioButton android:id="@+id/everyMonth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Every Month"
-                android:onClick="onRadioButtonClicked"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!--every day-->
+                <RadioButton android:id="@+id/everyDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Every Day"
+                    android:onClick="onRadioButtonClicked"/>
+                <!--every other day-->
+                <RadioButton android:id="@+id/everyOtherDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Every Other Day"
+                    android:onClick="onRadioButtonClicked"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!--every week-->
+                <RadioButton android:id="@+id/everyWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Every Week"
+                    android:onClick="onRadioButtonClicked"/>
+                <!--every other week-->
+                <RadioButton android:id="@+id/everyOtherWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Every Other Week"
+                    android:onClick="onRadioButtonClicked"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!--every month-->
+                <RadioButton android:id="@+id/everyMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Every Month"
+                    android:onClick="onRadioButtonClicked"/>
+            </LinearLayout>
         </RadioGroup>
     </LinearLayout>
 </LinearLayout>

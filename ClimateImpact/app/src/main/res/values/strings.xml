@@ -2,7 +2,7 @@
     <string name="app_name">Climate Impact</string>
     <color name="white">#FFFFFF</color>
     <color name="green">#1a9629</color>
-    <color name="dark">#171715</color>
+    <color name="dark">#08070D</color>
     <color name="red">#d81717</color>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
