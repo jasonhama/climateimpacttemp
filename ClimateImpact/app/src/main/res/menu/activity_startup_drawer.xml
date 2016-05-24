@@ -6,35 +6,35 @@
             android:id="@+id/profile"
             android:icon="@drawable/ic_nav_profile"
             android:title="Profile" />
-        <item
-            android:id="@+id/signup"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Sign Up" />
-        <item
-            android:id="@+id/signin"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Sign In" />
+        <!--<item-->
+            <!--android:id="@+id/signup"-->
+            <!--android:icon="@drawable/ic_menu_gallery"-->
+            <!--android:title="Sign Up" />-->
+        <!--<item-->
+            <!--android:id="@+id/signin"-->
+            <!--android:icon="@drawable/ic_menu_slideshow"-->
+            <!--android:title="Sign In" />-->
         <item
             android:id="@+id/activities"
             android:icon="@drawable/ic_menu_manage"
             android:title="Activities" />
         <item
             android:id="@+id/landing"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/landing"
             android:title="Landing" />
 
         <item
             android:id="@+id/about"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/info"
             android:title="About" />
 
         <item
             android:id="@+id/map"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/maps"
             android:title="Map" />
         <item
             android:id="@+id/logout"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/logout"
             android:title="Log Out" />
     </group>
 <!--

@@ -144,16 +144,16 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
                 //Toast.makeText(this,"You must be logged in to get to Profile", Toast.LENGTH_LONG).show();
             //}
             // Handle the camera action
-        } else if (id == R.id.signup) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new Signup())
-                    .addToBackStack(null)
-                    .commit();
-        } else if (id == R.id.signin) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new Signin())
-                    .addToBackStack(null)
-                    .commit();
+//        } else if (id == R.id.signup) {
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.container, new Signup())
+//                    .addToBackStack(null)
+//                    .commit();
+//        } else if (id == R.id.signin) {
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.container, new Signin())
+//                    .addToBackStack(null)
+//                    .commit();
         } else if (id == R.id.activities) {
             Log.v(TAG, "hihihihihihi");
             //if (accountDetails.getfName() == null) {
