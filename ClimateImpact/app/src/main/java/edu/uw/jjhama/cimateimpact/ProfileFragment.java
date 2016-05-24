@@ -51,19 +51,17 @@ public class ProfileFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         Log.v(TAG, "Profile page loading");
 
-
-
-        //set the values to users account details
-
-        //get email from previous fragment
+        //get and set email variable from previous fragment
         Bundle getBundle = getArguments();
-        if(getBundle.getString("email") != null) {
-            email = getBundle.getString("email");
+        if(getBundle != null){
+            if(getBundle.containsKey("email")){
+                email = getBundle.getString("email");
+            } else {
+                email = "test";
+            }
+        } else {
+            email = "test";
         }
-
-//        String name = "";
-//        final String[] waterAmount = {"0"};
-//        final String[] carbonAmount ={"0"};
 
         //query firebase and retrieve user info
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(email);
@@ -97,9 +95,7 @@ public class ProfileFragment extends Fragment {
                 username.setText(name);
 
                 Log.v(TAG, "User data has been loaded!");
-
             }
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -136,28 +132,11 @@ public class ProfileFragment extends Fragment {
                 changeUserDataFragment.setArguments(bundle);
                 new Handler().post(new Runnable() {
                     public void run() {
-//                        ChangeUserDataFragment changeUserDataFragment = new ChangeUserDataFragment();
                         changeUserDataFragment.show(getActivity().getFragmentManager(), "hello");
-//                        getActivity().getSupportFragmentManager()
-//                                .beginTransaction()
-//                                .replace(R.id.container, profileFragment)
-//                                .addToBackStack(null)
-//                                .commit();
                     }
                 });
-
-//                ChangeUserDataFragment changeUserDataFragment = new ChangeUserDataFragment();
-//                changeUserDataFragment.show(getActivity().getFragmentManager(), "hello");
-
             }
         });
-
-
-//        if(getBundle != null) {
-//            name = getBundle.getString("name");
-//            waterAmount = getBundle.getInt("water");
-//            carbonAmount = getBundle.getInt("carbon");
-//        }
 
         return rootView;
     }

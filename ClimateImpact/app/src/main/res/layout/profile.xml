@@ -40,7 +40,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Carbon"
                 android:textColor="@color/white"
                 android:id="@+id/carbon" />
         </LinearLayout>
@@ -64,7 +63,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Water"
                 android:textColor="@color/white"
                 android:id="@+id/water"/>
         </LinearLayout>
@@ -118,7 +116,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Username"
                 android:textColor="@color/white"
                 android:id="@+id/username" />
 
@@ -142,7 +139,6 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/white"
                 android:id="@+id/fName"
-                android:text="First Name"
                 android:textColorHint="@color/white"
                 />
         </LinearLayout>
@@ -163,7 +159,6 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:id="@+id/lName"
-                android:text="Last Name"
                 android:textColor="@color/white"
                 />
         </LinearLayout>
@@ -187,9 +182,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/white"
-                android:id="@+id/txtZip"
-                android:text="Zip Code"
-                />
+                android:id="@+id/txtZip" />
         </LinearLayout>
 
         <!---
