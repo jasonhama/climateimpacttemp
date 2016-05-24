@@ -55,7 +55,6 @@
             android:id="@+id/delimiterStart"
             />
 
-
         <EditText
             android:layout_width="64dp"
             android:layout_height="wrap_content"
@@ -65,8 +64,6 @@
             android:layout_alignTop="@+id/textView15"
             android:layout_alignLeft="@+id/hoursEnd"
             android:layout_alignStart="@+id/hoursEnd" />
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -123,6 +120,7 @@
             android:layout_height="match_parent"
             android:text="Repeat Setting"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -5,11 +5,47 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/activity_vertical_margin"
-    android:background="@color/colorDarkGrey">
+    android:background="@color/colorDarkGrey"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Terms and Conditions / Privacy"
+        android:id="@+id/textView8"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/red"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Terms and conditions"
+        android:id="@+id/textView18"
+        android:textColor="@color/red"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="This page is currently under construction."
-        android:textColor="@color/white"/>
+        android:layout_height="52dp"
+        android:text="All copyright, trade marks, design rights, patents and other intellectual property rights (registered and unregistered) in and on Climate Impact belong to the Climate Impact team and/or thrid parties ( which may include you or other users.)  Climate Impact reserves all of its right, content and services.  Nothing in the Terms grants you a right or licence to use any trade mark, design right, or copyright owned or controlled by Climate Impact or any third party except as expressly provided in the Terms"
+        android:textColor="@color/white"
+        android:layout_weight="0.58" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Privacy"
+        android:textColor="@color/red"
+        android:id="@+id/textView19" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="All copyright, trade marks, design rights, patents and other intellectual property rights (registered and unregistered) in and on Climate Impact belong to the Climate Impact team and/or thrid parties ( which may include you or other users.)  Climate Impact reserves all of its right, content and services.  Nothing in the Terms grants you a right or licence to use any trade mark, design right, or copyright owned or controlled by Climate Impact or any third party except as expressly provided in the Terms"
+        android:textColor="@color/white"
+        android:id="@+id/textView20" />
+
 </LinearLayout>
