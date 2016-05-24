@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 //import com.firebase.client.Firebase;
 //import com.firebase.client.FirebaseError;
@@ -62,15 +63,14 @@ public class Signup extends Fragment {
                 String password = ((EditText) rootView.findViewById(R.id.password)).getText().toString();
                 String confirmPassword = ((EditText) rootView.findViewById(R.id.confirmPassword)).getText().toString();
 
-
-                if(name != null && email != null) {
-                    if(password.length() > 0) {
+                if(!name.equals("") && !email.equals("") && !password.equals("") && !confirmPassword.equals("")) {
+//                    if (!password.equals("")) {
                         if (password.equals(confirmPassword)) {
 
                             //pack up a bundle
                             Bundle bundle = new Bundle();
                             bundle.putString("email", email);
-                            
+
                             //creates a new user on Firebase
                             UUID uuid = UUID.randomUUID();
                             mDatabase = mDatabase.child(email);
@@ -101,12 +101,19 @@ public class Signup extends Fragment {
                                     .commit();
                         } else {
                             Log.v(TAG, "password and confirm were not the same");
+                            Toast.makeText(getActivity(), "Password and Confirm Password were not the same",
+                                    Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        Log.v(TAG, "password was empty");
-                    }
+//                    } else {
+//                        Log.v(TAG, "password was empty");
+//                        Toast.makeText(getActivity(), "password was empty",
+//                                Toast.LENGTH_SHORT).show();
+//                    }
+
                 } else {
                     Log.v(TAG, "name or email was null");
+                    Toast.makeText(getActivity(), "Please fill out all fields above before submitting",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
