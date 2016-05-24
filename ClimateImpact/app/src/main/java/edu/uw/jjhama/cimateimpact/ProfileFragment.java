@@ -111,9 +111,12 @@ public class ProfileFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
+                Activity activity = new Activity();
+                Bundle bundle = new Bundle();
+                bundle.putString("email", email);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.container, new Activity())
+                        .replace(R.id.container, activity)
                         .addToBackStack(null)
                         .commit();
             }
@@ -138,6 +141,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        Log.v(TAG, "User loaded... Email is: " + email);
         return rootView;
     }
 }

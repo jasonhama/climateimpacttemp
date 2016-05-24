@@ -22,7 +22,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.Calendar;
+import java.util.UUID;
 
 /**
  * Created by iguest on 4/29/16.
@@ -34,6 +41,7 @@ public class ReminderDialog extends DialogFragment{
 
     Context context = getActivity();
     String action;
+    String email;
     NotificationCompat.Builder mBuilder;
     private static final String TAG = "ReminderDialog";
 
@@ -49,6 +57,17 @@ public class ReminderDialog extends DialogFragment{
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
+        //get and set email variable from previous fragment
+        Bundle getBundle = getArguments();
+        if(getBundle != null){
+            if(getBundle.containsKey("email")){
+                email = getBundle.getString("email");
+            } else {
+                email = "test";
+            }
+        } else {
+            email = "test";
+        }
 
 
         // Inflate and set the layout for the dialog
@@ -108,7 +127,27 @@ public class ReminderDialog extends DialogFragment{
                             //setAlarm();
 
                             startAlert();
-                            Log.v(TAG, "");
+
+                            //add task to database
+                            UUID uuid = UUID.randomUUID();
+                            final DatabaseReference mDatabase;
+                            mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(email).child("tasks").child("" + uuid);
+                            mDatabase.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot snapshot) {
+                                    mDatabase.child("action").setValue("test");
+                                    mDatabase.child("startTime").setValue("a");
+                                    mDatabase.child("endTime").setValue("b");
+                                    mDatabase.child("frequency").setValue("hi");
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                                    Toast.makeText(getActivity(), "Failed to load post.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         } else {
                             Log.v(TAG, "AAAAAHHHH!!!!");
                             Toast.makeText(getActivity(), "Time for alarm not set", Toast.LENGTH_LONG).show();

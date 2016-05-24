@@ -17,6 +17,7 @@ import android.widget.TextView;
 public class Activity extends Fragment {
 
     private static final String TAG = "Activity";
+    String email;
 
     public Activity(){
         //required empty
@@ -34,6 +35,18 @@ public class Activity extends Fragment {
 //        Assassin assassin = (Assassin)getActivity().getApplication();
 //        player = assassin.getPlayer();
         //AccountDetails accountDetails = (AccountDetails) getActivity().getApplication();
+
+        //get and set email variable from previous fragment
+        Bundle getBundle = getArguments();
+        if(getBundle != null){
+            if(getBundle.containsKey("email")){
+                email = getBundle.getString("email");
+            } else {
+                email = "test";
+            }
+        } else {
+            email = "test";
+        }
 
         info.setOnClickListener(new View.OnClickListener() {
 
@@ -63,6 +76,7 @@ public class Activity extends Fragment {
                 Bundle args = new Bundle();
                 String action = (String)((TextView) rootView.findViewById(R.id.action)).getText().toString();
                 args.putString("action", action);
+                args.putString("email", email);
                 reminderDialog.setArguments(args);
                 reminderDialog.show(getActivity().getFragmentManager(), "hello");
                 getActivity().getSupportFragmentManager()
@@ -73,6 +87,7 @@ public class Activity extends Fragment {
             }
         });
 
+        Log.v(TAG, "User loaded... Email is: " + email);
         return rootView;
     }
 
