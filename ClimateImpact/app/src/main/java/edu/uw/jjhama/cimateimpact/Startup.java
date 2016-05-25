@@ -76,7 +76,7 @@ public class Startup extends Fragment {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.startup, container, false);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
 //        /* *************************************
 //         *              FACEBOOK               *

@@ -10,10 +10,10 @@
             android:id="@+id/profile"
             android:icon="@drawable/ic_nav_profile"
             android:title="Profile" />
-        <!--<item-->
-            <!--android:id="@+id/signup"-->
-            <!--android:icon="@drawable/ic_menu_gallery"-->
-            <!--android:title="Sign Up" />-->
+        <item
+            android:id="@+id/activity_list"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="My Activities" />
         <!--<item-->
             <!--android:id="@+id/signin"-->
             <!--android:icon="@drawable/ic_menu_slideshow"-->

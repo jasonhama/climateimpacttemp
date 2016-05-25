@@ -188,6 +188,11 @@ public class Landing extends AppCompatActivity implements NavigationView.OnNavig
                     .replace(R.id.container, new Startup())
                     .addToBackStack(null)
                     .commit();
+        } else if (id == R.id.activity_list){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new ActivityListFragment())
+                    .addToBackStack(null)
+                    .commit();
         }
 //        else if (id == R.id.nav_share) {
 //
