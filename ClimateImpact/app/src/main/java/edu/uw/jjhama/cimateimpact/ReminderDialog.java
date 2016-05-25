@@ -19,6 +19,8 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -83,7 +85,22 @@ public class ReminderDialog extends DialogFragment{
                         //make a personalized notification
                         Dialog f = (Dialog) dialog;
                         EditText firstName = (EditText) f.findViewById(R.id.firstName);
-                        String startTime = ((String) ((EditText) f.findViewById(R.id.hoursStart)).getText().toString()) + ":" + ((String) ((EditText) f.findViewById(R.id.minutesStart)).getText().toString());
+                        final String startTime = ((String) ((EditText) f.findViewById(R.id.hoursStart)).getText().toString()) + ":" + ((String) ((EditText) f.findViewById(R.id.minutesStart)).getText().toString());
+                        RadioGroup radioGroup = (RadioGroup) f.findViewById(R.id.radioGroup);
+                        Log.v(TAG, radioGroup.getCheckedRadioButtonId() + "");
+//                        int index = radioGroup.indexOfChild(f.findViewById(radioGroup.getCheckedRadioButtonId()));
+//                        int radioButtonID = radioGroup.getCheckedRadioButtonId();
+//                        View radioButton = radioGroup.findViewById(radioButtonID);
+//                        //int idp = radioGroup.getCheckedRadioButtonId();
+//                        //int idx = radioGroup.indexOfChild(radioButton);
+//                        RadioButton btn = (RadioButton) radioGroup.getChildAt(radioButtonID);
+//                        //RadioButton r = (RadioButton) radioGroup(idx);
+//                        Log.v(TAG, "id selected is... " + radioButtonID + " and the button is... " + btn);
+//                        final String frequency = (String) btn.getText();
+//                        Log.v(TAG, "frequency is: "+ frequency);
+//                        //EditText frequency = (EditText) f.findViewById(R.id.frequency);
+//                        //final String frequency = (String) ((EditText) f.findViewById(R.id.frequency)).getText().toString();
+                        final String endTime = ((String) ((EditText) f.findViewById(R.id.hoursEnd)).getText().toString()) + ":" + ((String) ((EditText) f.findViewById(R.id.minutesEnd)).getText().toString());
 
                         EditText timeStartHours = (EditText) f.findViewById(R.id.hoursStart);
 
@@ -135,10 +152,10 @@ public class ReminderDialog extends DialogFragment{
                             mDatabase.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot snapshot) {
-                                    mDatabase.child("action").setValue("test");
-                                    mDatabase.child("startTime").setValue("a");
-                                    mDatabase.child("endTime").setValue("b");
-                                    mDatabase.child("frequency").setValue("hi");
+                                    mDatabase.child("action").setValue(action);
+                                    mDatabase.child("startTime").setValue(startTime);
+                                    mDatabase.child("endTime").setValue(endTime);
+                                    mDatabase.child("frequency").setValue("Every Other Day");
                                 }
 
                                 @Override
