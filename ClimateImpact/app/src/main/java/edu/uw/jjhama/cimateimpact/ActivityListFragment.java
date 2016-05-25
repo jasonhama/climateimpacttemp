@@ -119,6 +119,7 @@ public class ActivityListFragment extends Fragment {
         } else {
             email = "test";
         }
+        Log.v(TAG, email);
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(email).child("tasks");
         mDatabase.addValueEventListener(new ValueEventListener() {

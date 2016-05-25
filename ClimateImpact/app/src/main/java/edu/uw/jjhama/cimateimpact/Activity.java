@@ -40,6 +40,7 @@ public class Activity extends Fragment {
         Bundle getBundle = getArguments();
         if(getBundle != null){
             if(getBundle.containsKey("email")){
+                Log.v(TAG, "case 1");
                 email = getBundle.getString("email");
             } else {
                 email = "test";
@@ -47,6 +48,8 @@ public class Activity extends Fragment {
         } else {
             email = "test";
         }
+
+        Log.v(TAG, email);
 
         info.setOnClickListener(new View.OnClickListener() {
 
@@ -77,11 +80,14 @@ public class Activity extends Fragment {
                 String action = (String)((TextView) rootView.findViewById(R.id.action)).getText().toString();
                 args.putString("action", action);
                 args.putString("email", email);
+                Log.v(TAG, email);
                 reminderDialog.setArguments(args);
+                ActivityListFragment activityListFragment = new ActivityListFragment();
+                activityListFragment.setArguments(args);
                 reminderDialog.show(getActivity().getFragmentManager(), "hello");
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.container, new ActivityListFragment())
+                        .replace(R.id.container, activityListFragment)
                         .addToBackStack(null)
                         .commit();
             }

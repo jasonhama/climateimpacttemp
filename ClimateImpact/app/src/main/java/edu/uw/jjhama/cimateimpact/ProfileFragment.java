@@ -114,6 +114,8 @@ public class ProfileFragment extends Fragment {
                 Activity activity = new Activity();
                 Bundle bundle = new Bundle();
                 bundle.putString("email", email);
+                Log.v(TAG, "bundling up an email: " + email);
+                activity.setArguments(bundle);
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.container, activity)
