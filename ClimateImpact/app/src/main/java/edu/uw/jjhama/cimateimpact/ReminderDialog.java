@@ -79,95 +79,95 @@ public class ReminderDialog extends DialogFragment{
                 .setPositiveButton("submit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-
-                        Log.v(TAG, "Event Created");
-                        // sign in the user ...
-                        //make a personalized notification
                         Dialog f = (Dialog) dialog;
-                        EditText firstName = (EditText) f.findViewById(R.id.firstName);
+                        int hoursStart = Integer.parseInt((String) ((EditText) f.findViewById(R.id.hoursStart)).getText().toString());
+                        int minutesStart = Integer.parseInt((String) ((EditText) f.findViewById(R.id.minutesStart)).getText().toString());
+                        int hoursEnd = Integer.parseInt(((String) ((EditText) f.findViewById(R.id.hoursEnd)).getText().toString()));
+                        int minutesEnd = Integer.parseInt(((String) ((EditText) f.findViewById(R.id.minutesEnd)).getText().toString()));
+
                         final String startTime = ((String) ((EditText) f.findViewById(R.id.hoursStart)).getText().toString()) + ":" + ((String) ((EditText) f.findViewById(R.id.minutesStart)).getText().toString());
-                        RadioGroup radioGroup = (RadioGroup) f.findViewById(R.id.radioGroup);
-                        Log.v(TAG, radioGroup.getCheckedRadioButtonId() + "");
-//                        int index = radioGroup.indexOfChild(f.findViewById(radioGroup.getCheckedRadioButtonId()));
-//                        int radioButtonID = radioGroup.getCheckedRadioButtonId();
-//                        View radioButton = radioGroup.findViewById(radioButtonID);
-//                        //int idp = radioGroup.getCheckedRadioButtonId();
-//                        //int idx = radioGroup.indexOfChild(radioButton);
-//                        RadioButton btn = (RadioButton) radioGroup.getChildAt(radioButtonID);
-//                        //RadioButton r = (RadioButton) radioGroup(idx);
-//                        Log.v(TAG, "id selected is... " + radioButtonID + " and the button is... " + btn);
-//                        final String frequency = (String) btn.getText();
-//                        Log.v(TAG, "frequency is: "+ frequency);
-//                        //EditText frequency = (EditText) f.findViewById(R.id.frequency);
-//                        //final String frequency = (String) ((EditText) f.findViewById(R.id.frequency)).getText().toString();
                         final String endTime = ((String) ((EditText) f.findViewById(R.id.hoursEnd)).getText().toString()) + ":" + ((String) ((EditText) f.findViewById(R.id.minutesEnd)).getText().toString());
 
-                        EditText timeStartHours = (EditText) f.findViewById(R.id.hoursStart);
 
-                        timeStartHours.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                            @Override
-                            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                                    Log.v(TAG, "HIHIHIHIHIHIHIHIHIHIHIHI");
-                                    return true;
-                                }
-                                return false;
-                            }
-                        });
-                        Log.v(TAG, startTime);
-                        if(!startTime.equals(":")) {
-                            //Log.v(TAG, "Submit was selected \n username: "+ );
-                            Context context = getActivity();
+                        if(hoursStart < 24 && minutesEnd < 60 && minutesStart < 60 && hoursEnd < 24) {
+                            Log.v(TAG, "Event Created");
+                            // sign in the user ...
+                            //make a personalized notification
 
-                            NotificationCompat.Builder mBuilder =
-                                    new NotificationCompat.Builder(getActivity())
-                                            .setSmallIcon(R.drawable.ic_menu_send)
-                                            .setContentTitle("Reminder Set!")
-                                            .setAutoCancel(true)
-                                            .setContentText("Reminder set to " + action + " at " + startTime + ".");
-                            Intent resultIntent = new Intent(context, Landing.class);
-                            TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-                            stackBuilder.addParentStack(Landing.class);
-                            stackBuilder.addNextIntent(resultIntent);
-                            PendingIntent resultPendingIntent =
-                                    stackBuilder.getPendingIntent(
-                                            0,
-                                            PendingIntent.FLAG_UPDATE_CURRENT
-                                    );
-                            mBuilder.setContentIntent(resultPendingIntent);
-                            NotificationManager mNotificationManager =
-                                    (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+                            EditText firstName = (EditText) f.findViewById(R.id.firstName);
+                            RadioGroup radioGroup = (RadioGroup) f.findViewById(R.id.radioGroup);
+                            Log.v(TAG, radioGroup.getCheckedRadioButtonId() + "");
 
+                            EditText timeStartHours = (EditText) f.findViewById(R.id.hoursStart);
 
-                            mNotificationManager.notify(1, mBuilder.build());
-
-                            //setAlarm();
-
-                            startAlert();
-
-                            //add task to database
-                            UUID uuid = UUID.randomUUID();
-                            final DatabaseReference mDatabase;
-                            mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(email).child("tasks").child("" + uuid);
-                            mDatabase.addValueEventListener(new ValueEventListener() {
+                            timeStartHours.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                                 @Override
-                                public void onDataChange(DataSnapshot snapshot) {
-                                    mDatabase.child("action").setValue(action);
-                                    mDatabase.child("startTime").setValue(startTime);
-                                    mDatabase.child("endTime").setValue(endTime);
-                                    mDatabase.child("frequency").setValue("Every Other Day");
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-                                    Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-                                    Toast.makeText(getActivity(), "Failed to load post.",
-                                            Toast.LENGTH_SHORT).show();
+                                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                                        return true;
+                                    }
+                                    return false;
                                 }
                             });
+
+                            Log.v(TAG, startTime);
+                            if (!startTime.equals(":")) {
+                                //Log.v(TAG, "Submit was selected \n username: "+ );
+                                Context context = getActivity();
+
+                                NotificationCompat.Builder mBuilder =
+                                        new NotificationCompat.Builder(getActivity())
+                                                .setSmallIcon(R.drawable.ic_menu_send)
+                                                .setContentTitle("Reminder Set!")
+                                                .setAutoCancel(true)
+                                                .setContentText("Reminder set to " + action + " at " + startTime + ".");
+                                Intent resultIntent = new Intent(context, Landing.class);
+                                TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+                                stackBuilder.addParentStack(Landing.class);
+                                stackBuilder.addNextIntent(resultIntent);
+                                PendingIntent resultPendingIntent =
+                                        stackBuilder.getPendingIntent(
+                                                0,
+                                                PendingIntent.FLAG_UPDATE_CURRENT
+                                        );
+                                mBuilder.setContentIntent(resultPendingIntent);
+                                NotificationManager mNotificationManager =
+                                        (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+
+
+                                mNotificationManager.notify(1, mBuilder.build());
+
+                                //setAlarm();
+
+                                startAlert();
+
+                                //add task to database
+                                UUID uuid = UUID.randomUUID();
+                                final DatabaseReference mDatabase;
+                                mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(email).child("tasks").child("" + uuid);
+                                mDatabase.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot snapshot) {
+                                        mDatabase.child("action").setValue(action);
+                                        mDatabase.child("startTime").setValue(startTime);
+                                        mDatabase.child("endTime").setValue(endTime);
+                                        mDatabase.child("frequency").setValue("Every Other Day");
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                        Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                                        Toast.makeText(getActivity(), "Failed to load post.",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            } else {
+                                Toast.makeText(getActivity(), "Time for alarm not set", Toast.LENGTH_LONG).show();
+                                ReminderDialog.this.getDialog().cancel();
+                            }
                         } else {
-                            Log.v(TAG, "AAAAAHHHH!!!!");
-                            Toast.makeText(getActivity(), "Time for alarm not set", Toast.LENGTH_LONG).show();
+                            Log.v(TAG, "issue with time selected");
+                            Toast.makeText(getActivity(), "Please set valid time options", Toast.LENGTH_LONG).show();
                             ReminderDialog.this.getDialog().cancel();
                         }
 
@@ -235,8 +235,8 @@ public class ReminderDialog extends DialogFragment{
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(getActivity().ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
                 + (i * 1000), pendingIntent);
-        Toast.makeText(getActivity(), "Alarm set in " + i + " seconds",
-                Toast.LENGTH_LONG).show();
+//        Toast.makeText(getActivity(), "Alarm set in " + i + " seconds",
+//                Toast.LENGTH_LONG).show();
         Log.v(TAG, "startAlert finished");
     }
 

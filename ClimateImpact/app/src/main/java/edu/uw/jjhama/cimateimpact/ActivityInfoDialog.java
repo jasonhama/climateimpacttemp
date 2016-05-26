@@ -43,7 +43,7 @@ public class ActivityInfoDialog extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.activity_info, container, false);
-        getActivity().setTitle("Profile");
+        getActivity().setTitle("Activity Info");
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         Log.v(TAG, "Profile page loading");
 
@@ -68,6 +68,8 @@ public class ActivityInfoDialog extends Fragment {
         TextView actionTV = (TextView) rootView.findViewById(R.id.activity);
         TextView startTimeTV = (TextView) rootView.findViewById(R.id.startTime);
         TextView endTimeTV = (TextView) rootView.findViewById(R.id.endTime);
+
+        Log.v(TAG, "frequency: "+ frequencyString + ", action: " + actionString + ", startTime: " + startTimeString + ", endTime: " + endTimeString);
 
         frequencyTV.setText(frequencyString);
         actionTV.setText(actionString);

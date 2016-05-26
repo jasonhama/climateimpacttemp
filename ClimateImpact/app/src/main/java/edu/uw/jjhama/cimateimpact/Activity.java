@@ -32,10 +32,6 @@ public class Activity extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         Button info = (Button) rootView.findViewById(R.id.info);
 
-//        Assassin assassin = (Assassin)getActivity().getApplication();
-//        player = assassin.getPlayer();
-        //AccountDetails accountDetails = (AccountDetails) getActivity().getApplication();
-
         //get and set email variable from previous fragment
         Bundle getBundle = getArguments();
         if(getBundle != null){

@@ -51,9 +51,9 @@ public class ActivityListFragment extends Fragment {
     String email;
     ActivityDetails activityDetails;
     private AdapterView listView; //gets a listview
-    //private ArrayAdapter<String> adapter = null;
     private List<ActivityDetails> activityList = new ArrayList<ActivityDetails>();
     private ArrayAdapter<ActivityDetails> adapter; //is the adapter to store all the rankings
+
     public ActivityListFragment(){
         //required empty
     }
@@ -61,6 +61,7 @@ public class ActivityListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.detail, container, false);
         listView = (ListView) rootView.findViewById(R.id.leaderboard_listview);
@@ -85,23 +86,6 @@ public class ActivityListFragment extends Fragment {
                         .replace(R.id.container, activityInfoDialog)
                         .addToBackStack(null)
                         .commit();
-//                new Handler().post(new Runnable() {
-//                    public void run() {
-//                        activityInfoDialog.show(getActivity().getFragmentManager(), "hello");
-//                    }
-//                });
-//
-//                Bundle bundle = new Bundle();
-//                bundle.putString("title", selectedFromList);
-//
-//                DetailFragment detail = new DetailFragment();
-//                detail.setArguments(bundle);
-//
-//                getActivity().getSupportFragmentManager()
-//                        .beginTransaction()
-//                        .replace(R.id.container2, detail)
-//                        .addToBackStack(null)
-//                        .commit();
             }
         });
         getActivity().setTitle("Activity List");
@@ -127,14 +111,15 @@ public class ActivityListFragment extends Fragment {
             public void onDataChange(DataSnapshot snapshot) {
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Log.v(TAG, postSnapshot.getKey() + "");
-                    activityDetails = new ActivityDetails(postSnapshot.getKey(), (String) postSnapshot.child("startTime").getValue(), (String) postSnapshot.child("endTime").getValue(), (String) postSnapshot.child("action").getValue(), (String) postSnapshot.child("frequency").getValue());
+                    activityDetails = new ActivityDetails(postSnapshot.getKey(), (String) postSnapshot.child("action").getValue(),
+                            (String) postSnapshot.child("frequency").getValue(), (String) postSnapshot.child("startTime").getValue(),
+                            (String) postSnapshot.child("endTime").getValue());
                     Log.v(TAG, activityDetails.toString());
                     activityList.add(activityDetails);
                     adapter.add(activityDetails);
                 }
 
                 Log.v(TAG, activityList.size() + "");
-                //adapter = new ArrayAdapter(getActivity(), R.layout.details, R.id.txtItem);
                 Log.v(TAG, "activities have been loaded!");
             }
 
@@ -146,9 +131,7 @@ public class ActivityListFragment extends Fragment {
             }
         });
 
-//        Log.v(TAG, activityList.size() + "");
         adapter = new ArrayAdapter(getActivity(), R.layout.details, R.id.txtItem);
-//        Log.v(TAG, "activities have been loaded!");
         return rootView;
     }
 
