@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -32,6 +35,7 @@ public class ActivityInfoDialog extends Fragment {
     String endTimeString;
     String startTimeString;
     String frequencyString;
+    boolean once = false;
     private DatabaseReference mDatabase;
 
     public ActivityInfoDialog(){
@@ -95,6 +99,32 @@ public class ActivityInfoDialog extends Fragment {
             public void onClick(View v) {
                 //todo:add X amount of points to user
                 mDatabase  = FirebaseDatabase.getInstance().getReference().child("users").child(email).child("carbon");
+                final long[] carbon = new long[1];
+                once = false;
+                mDatabase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // Get Post object and use the values to update the UI
+                        //Post post = dataSnapshot.getValue(Post.class);
+                        //carbon = dataSnapshot
+                        //mDatabase.setValue();
+                        if(!once) {
+                            carbon[0] = ((long) dataSnapshot.getValue()) + 10;
+                            mDatabase.setValue(carbon[0]);
+                            once = true;
+                        }
+                        //Log.v(TAG, dataSnapshot.getValue() + );
+                        // ...
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Getting Post failed, log a message
+                        Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                        // ...
+                    }
+                });
+
                 //int carbon = mDatabase.g
                 Log.v(TAG, "complete was selected");
             }
